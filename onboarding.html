@@ -2,74 +2,275 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Bienvenue - Anti-Paste Bypass</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anti-Paste Bypass — Setup</title>
   <link rel="stylesheet" href="onboarding.css">
 </head>
-<body class="bg-light">
+<body>
 
-  <div class="container min-vh-100 d-flex justify-content-center align-items-center py-5">
-    
-    <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="max-width: 800px; width: 100%;">
-      <div class="row g-0">
-        
-        <!-- Left Side (Hero) -->
-        <div class="col-md-5 bg-primary text-white d-flex flex-column justify-content-center align-items-center p-5 text-center hero-bg">
-          <img src="icons/icon-128.png" alt="Logo" class="rounded-4 shadow mb-4" width="96" height="96">
-          <h2 class="fw-bold mb-2" data-i18n="extensionName">Anti-Paste Bypass</h2>
-          <p class="opacity-75" data-i18n="popupSubtitle">Contournement intelligent du presse-papiers</p>
-        </div>
-        
-        <!-- Right Side (Steps) -->
-        <div class="col-md-7 p-5">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold mb-0 text-dark" data-i18n="onboardingTitle">Bienvenue !</h3>
-            <select id="lang-selector" class="form-select form-select-sm shadow-sm border-0 bg-light" style="width: auto; cursor: pointer;">
-              <option value="fr">🇫🇷 FR</option>
-              <option value="en">🇬🇧 EN</option>
-              <option value="es">🇪🇸 ES</option>
-              <option value="pt">🇵🇹 PT</option>
-              <option value="it">🇮🇹 IT</option>
-              <option value="de">🇩🇪 DE</option>
-            </select>
-          </div>
-          
-          <div class="d-flex flex-column gap-4 mb-5">
-            <!-- Step 1 -->
-            <div class="d-flex align-items-start">
-              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">1</div>
-              <div>
-                <h6 class="fw-bold mb-1" data-i18n="step1Title">Épinglez l'extension</h6>
-                <p class="text-muted mb-0 small" data-i18n="step1Desc">Cliquez sur l'icône <span class="badge bg-secondary">🧩 Puzzle</span> en haut à droite de Chrome et cliquez sur l'épingle 📌 pour y accéder facilement.</p>
-              </div>
-            </div>
-            
-            <!-- Step 2 -->
-            <div class="d-flex align-items-start">
-              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">2</div>
-              <div>
-                <h6 class="fw-bold mb-1" data-i18n="step2Title">Préparez votre texte</h6>
-                <p class="text-muted mb-0 small" data-i18n="step2Desc">Ouvrez l'extension et collez votre texte dans la zone dédiée.</p>
-              </div>
-            </div>
+  <!-- ═══ AMBIENT BACKGROUND LAYERS ═══ -->
+  <div class="bg-mesh"></div>
+  <div class="bg-pulse"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-scan"></div>
+  <div class="bg-vignette"></div>
 
-            <!-- Step 3 -->
-            <div class="d-flex align-items-start">
-              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">3</div>
-              <div>
-                <h6 class="fw-bold mb-1" data-i18n="step3Title">Contournez le blocage</h6>
-                <p class="text-muted mb-0 small" data-i18n="step3Desc">Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste Bypass.</p>
-              </div>
-            </div>
-          </div>
-          
-          <button id="start-btn" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm" data-i18n="onboardingButton">C'est parti !</button>
-        </div>
-        
+  <!-- Corner Labels -->
+  <span class="bg-coords bg-coords-tl">SYS · ANTIPASTE · v26.7.21</span>
+  <span class="bg-coords bg-coords-tr">BYPASS ENGINE · ACTIVE</span>
+  <span class="bg-coords bg-coords-bl">CH 01 · ONBOARDING</span>
+  <span class="bg-coords bg-coords-br">SECURE · ANTI-AI · READY</span>
+
+  <main class="container">
+
+    <!-- ═══ TOP HEADER ═══ -->
+    <header class="top-header">
+      <div class="brand">
+        <img class="brand-mark" src="icons/icon-48.png" alt="Anti-Paste Bypass">
+        <span class="brand-name">ANTI-PASTE BYPASS</span>
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Setup</span>
+        <span class="brand-live">READY</span>
       </div>
+      <span class="step-counter">
+        <span class="step-counter-label">STEP</span>
+        <span class="step-counter-current-wrap">
+          <span id="step-counter-current">01</span>
+        </span>
+        <span class="step-counter-divider">/</span>
+        <span class="step-counter-total">03</span>
+      </span>
+    </header>
+
+    <!-- ═══ STEPPER ═══ -->
+    <nav class="stepper" id="stepper">
+      <div class="step-pill active" data-step="0">
+        <span class="step-num">01</span>
+        <span class="step-label">Langue</span>
+      </div>
+      <div class="step-pill" data-step="1">
+        <span class="step-num">02</span>
+        <span class="step-label">Fonctions</span>
+      </div>
+      <div class="step-pill" data-step="2">
+        <span class="step-num">03</span>
+        <span class="step-label">Lancement</span>
+      </div>
+    </nav>
+
+    <!-- ═══ STAGE ═══ -->
+    <div class="stage">
+
+      <!-- ─── STEP 0 : Welcome + Language ─── -->
+      <section class="wizard-step active" data-step="0">
+        <div class="step-frame step-frame-single">
+          <div class="welcome-frame">
+            <p class="welcome-tagline">CHROME EXTENSION · ANTI-PASTE · BYPASS</p>
+            <h1 class="welcome-display">
+              <span class="word" style="animation-delay:0.1s">Collez</span>
+              <span class="word" style="animation-delay:0.2s">partout,</span>
+              <br>
+              <span class="word italic" style="animation-delay:0.4s">sans limites.</span>
+            </h1>
+            <p class="welcome-sub" data-i18n="popupSubtitle">
+              L'extension qui contourne les restrictions de collage sur n'importe quel site. Choisissez votre langue pour commencer.
+            </p>
+
+            <div class="language-options" id="language-options">
+              <button class="language-button is-active" data-lang="en">
+                <span class="language-button-flag">🇬🇧</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">English</span>
+                  <span class="language-button-code">EN</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+              <button class="language-button" data-lang="fr">
+                <span class="language-button-flag">🇫🇷</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">Français</span>
+                  <span class="language-button-code">FR</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+              <button class="language-button" data-lang="es">
+                <span class="language-button-flag">🇪🇸</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">Español</span>
+                  <span class="language-button-code">ES</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+              <button class="language-button" data-lang="pt">
+                <span class="language-button-flag">🇵🇹</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">Português</span>
+                  <span class="language-button-code">PT</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+              <button class="language-button" data-lang="it">
+                <span class="language-button-flag">🇮🇹</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">Italiano</span>
+                  <span class="language-button-code">IT</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+              <button class="language-button" data-lang="de">
+                <span class="language-button-flag">🇩🇪</span>
+                <span class="language-button-meta">
+                  <span class="language-button-label">Deutsch</span>
+                  <span class="language-button-code">DE</span>
+                </span>
+                <span class="language-button-check">✓</span>
+              </button>
+            </div>
+
+            <div class="step-nav" style="justify-content: center;">
+              <button class="btn btn-primary" id="btn-next-0">
+                <span data-i18n="onboardingButton">Continuer</span>
+                <span class="btn-icon">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── STEP 1 : Features ─── -->
+      <section class="wizard-step" data-step="1">
+        <div class="step-frame">
+          <!-- Left: editorial header -->
+          <div class="step-header">
+            <div class="step-eyebrow">02 / FEATURES · BYPASS</div>
+            <h1 class="step-title">
+              Ce que vous<br>
+              <span class="accent">pouvez faire</span>.
+            </h1>
+            <p class="step-desc">
+              Anti-Paste Bypass simule une vraie frappe humaine pour contourner les blocages de collage sur tous les sites.
+            </p>
+            <div class="step-meta">
+              <span class="step-meta-item">FRAPPE SIMULÉE</span>
+              <span class="step-meta-item">ANTI-IA</span>
+              <span class="step-meta-item">RACCOURCI</span>
+            </div>
+          </div>
+
+          <!-- Right: features -->
+          <div class="step-content">
+            <div class="glass frame-brackets features-list">
+              <div class="feature-row">
+                <span class="feature-icon">⌨️</span>
+                <div class="feature-text">
+                  <span class="feature-title" data-i18n="step2Title">Frappe Simulée</span>
+                  <span class="feature-desc">Tapé lettre par lettre, indiscernable d'un humain.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-icon">🪄</span>
+                <div class="feature-text">
+                  <span class="feature-title">Bouton Magique 🧩</span>
+                  <span class="feature-desc">Un bouton apparaît dans chaque champ de texte.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-icon">🧠</span>
+                <div class="feature-text">
+                  <span class="feature-title" data-i18n="antiAILabel">Mode Ultra-Humain</span>
+                  <span class="feature-desc">Fautes + corrections pour tromper les détecteurs d'IA.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-icon">🔑</span>
+                <div class="feature-text">
+                  <span class="feature-title">Raccourci Clavier</span>
+                  <span class="feature-desc"><kbd class="kbd">Option + Shift + V</kbd> pour coller sans clic droit.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-icon">🕵️</span>
+                <div class="feature-text">
+                  <span class="feature-title" data-i18n="incognitoLabel">Mode Incognito</span>
+                  <span class="feature-desc">Aucun texte sensible sauvegardé en historique.</span>
+                </div>
+              </div>
+              <div class="feature-row last">
+                <span class="feature-icon">🌍</span>
+                <div class="feature-text">
+                  <span class="feature-title">6 Langues</span>
+                  <span class="feature-desc">EN, FR, ES, PT, IT, DE — changeable à tout moment.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn btn-ghost" id="btn-back-1">
+                <span class="btn-icon">←</span>
+                <span>Retour</span>
+              </button>
+              <button class="btn btn-primary" id="btn-next-1">
+                <span>Continuer</span>
+                <span class="btn-icon">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── STEP 2 : Launch ─── -->
+      <section class="wizard-step" data-step="2">
+        <div class="step-frame step-frame-single">
+          <div class="finish-frame">
+            <div class="finish-check">✓</div>
+            <div class="step-eyebrow" style="justify-content: center;">03 / READY · LANCEMENT</div>
+            <h1 class="finish-title" data-i18n="onboardingTitle">
+              Tout est prêt.
+            </h1>
+            <p class="welcome-sub">
+              Épinglez l'extension pour y accéder rapidement, puis allez sur n'importe quel site bloqué.
+            </p>
+
+            <div class="glass pin-instructions frame-brackets">
+              <div class="pin-label">
+                <span class="section-label">📌 ÉPINGLER L'EXTENSION</span>
+              </div>
+              <ol class="pin-steps">
+                <li data-i18n="step1Desc">
+                  <strong>Cliquez</strong> sur l'icône <span class="highlight">🧩 Puzzle</span> en haut à droite de Chrome
+                </li>
+                <li>
+                  <strong>Cherchez</strong> <span class="highlight">Anti-Paste Bypass</span> et cliquez sur 📌
+                </li>
+                <li data-i18n="step3Desc">
+                  Copiez du texte (<kbd>Cmd+C</kbd>), puis utilisez <kbd>Option+Shift+V</kbd> ou le bouton 🧩
+                </li>
+              </ol>
+            </div>
+
+            <button id="start-btn" class="btn btn-finish" data-i18n="onboardingButton">
+              C'est parti →
+            </button>
+
+            <p class="finish-hint">
+              Tous les réglages sont disponibles dans le popup de l'extension.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </div>
-  
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <span class="footer-brand">© 2026 ANTI-PASTE BYPASS</span>
+      <p style="font-family: var(--sp-mono);">
+        BY <a href="https://www.instagram.com/alexisamz" target="_blank" rel="noopener noreferrer">@ALEXISAMZ</a>
+      </p>
+      <span class="footer-coords">v26.7.21 · CHROME MV3</span>
+    </footer>
+  </main>
+
   <script src="onboarding.js"></script>
 </body>
 </html>
