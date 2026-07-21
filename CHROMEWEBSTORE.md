@@ -1,7 +1,7 @@
-# Chrome Web Store — PasteFlow (ex Anti-Paste Bypass)
+# Chrome Web Store — Anti-Paste Bypass
 
 > **Note sur le nom :** "Bypass" a une connotation trop technique et agressive. 
-> Des alternatives plus axées liberté/productivité : **PasteFlow**, **FreeType**, **TypeFree**, **PasteAnywhere**, **FlowPaste**.
+> Des alternatives plus axées liberté/productivité : **FreeType**, **TypeFree**, **PasteAnywhere**, **FlowPaste**.
 > La liste Chrome Web Store utilise le nom du `manifest.json`. À renommer si validé.
 
 ---
@@ -10,12 +10,12 @@
 
 **Title (50 chars max):**
 ```
-PasteFlow — Type Anywhere, Save Your Time
+Anti-Paste Bypass — Type Anywhere, Save Your Time
 ```
 
 **Summary (132 chars max):**
 ```
-Stop retyping. PasteFlow simulates human typing to remove paste restrictions on any website. Your time back, instantly.
+Stop retyping. Anti-Paste Bypass simulates human typing to remove paste restrictions on any website. Your time back, instantly.
 ```
 
 **Description:**
@@ -24,20 +24,20 @@ Every day, millions of people are forced to retype text they already have — be
 
 A form that won't let you paste your address. A password field that rejects your clipboard. An exam platform that forces you to type everything manually. These are not security features. They're restrictions that steal your time.
 
-PasteFlow gives you that time back.
+Anti-Paste Bypass gives you that time back.
 
-Instead of forcing a paste (which gets blocked), PasteFlow simulates natural, human-like typing — letter by letter, with realistic speed variations — making it completely transparent to any website.
+Instead of forcing a paste (which gets blocked), Anti-Paste Bypass simulates natural, human-like typing — letter by letter, with realistic speed variations — making it completely transparent to any website.
 
 ── HOW IT WORKS ──
 
 ✦ Copy your text as usual (Cmd+C / Ctrl+C)
 ✦ Click in any blocked field
 ✦ Hit the 🧩 button that appears, or use the keyboard shortcut
-✦ PasteFlow types the text for you, naturally
+✦ Anti-Paste Bypass types the text for you, naturally
 
 ── FEATURES ──
 
-⏱️ Time Saver — Stop wasting minutes retyping what you already have. PasteFlow does it in seconds.
+⏱️ Time Saver — Stop wasting minutes retyping what you already have. Anti-Paste Bypass does it in seconds.
 
 🧩 Magic Button — A subtle button appears automatically in any text field you focus. One click. Done.
 
@@ -61,7 +61,7 @@ Instead of forcing a paste (which gets blocked), PasteFlow simulates natural, hu
 → Professionals filling repetitive forms
 → Anyone who has ever had to retype something they already copied
 
-Your clipboard is yours. Your time is yours. PasteFlow removes the barriers.
+Your clipboard is yours. Your time is yours. Anti-Paste Bypass removes the barriers.
 ```
 
 ---
@@ -70,12 +70,12 @@ Your clipboard is yours. Your time is yours. PasteFlow removes the barriers.
 
 **Titre (50 car. max) :**
 ```
-PasteFlow — Collez partout, gagnez du temps
+Anti-Paste Bypass — Collez partout, gagnez du temps
 ```
 
 **Résumé (132 car. max) :**
 ```
-Stop à la re-saisie. PasteFlow simule la frappe humaine pour supprimer les restrictions de collage. Votre temps vous appartient.
+Stop à la re-saisie. Anti-Paste Bypass simule la frappe humaine pour supprimer les restrictions de collage. Votre temps vous appartient.
 ```
 
 **Description :**
@@ -84,20 +84,20 @@ Chaque jour, des millions de personnes sont forcées de retaper du texte qu'elle
 
 Un formulaire qui refuse votre adresse. Un champ mot de passe qui rejette votre presse-papiers. Une plateforme d'examen qui vous oblige à tout retaper manuellement. Ce ne sont pas des mesures de sécurité. Ce sont des restrictions qui vous volent votre temps.
 
-PasteFlow vous rend ce temps.
+Anti-Paste Bypass vous rend ce temps.
 
-Au lieu de forcer le collage (qui est bloqué), PasteFlow simule une frappe naturelle, humaine — lettre par lettre, avec des variations de vitesse réalistes — totalement invisible pour n'importe quel site.
+Au lieu de forcer le collage (qui est bloqué), Anti-Paste Bypass simule une frappe naturelle, humaine — lettre par lettre, avec des variations de vitesse réalistes — totalement invisible pour n'importe quel site.
 
 ── COMMENT ÇA MARCHE ──
 
 ✦ Copiez votre texte normalement (Cmd+C / Ctrl+C)
 ✦ Cliquez dans n'importe quel champ bloqué
 ✦ Cliquez sur le bouton 🧩 qui apparaît, ou utilisez le raccourci clavier
-✦ PasteFlow tape le texte à votre place, naturellement
+✦ Anti-Paste Bypass tape le texte à votre place, naturellement
 
 ── FONCTIONNALITÉS ──
 
-⏱️ Gain de Temps — Arrêtez de perdre des minutes à retaper ce que vous avez déjà. PasteFlow le fait en secondes.
+⏱️ Gain de Temps — Arrêtez de perdre des minutes à retaper ce que vous avez déjà. Anti-Paste Bypass le fait en secondes.
 
 🧩 Bouton Magique — Un bouton discret apparaît automatiquement dans chaque champ de texte. Un clic. C'est fait.
 
@@ -121,7 +121,7 @@ Au lieu de forcer le collage (qui est bloqué), PasteFlow simule une frappe natu
 → Les professionnels qui remplissent des formulaires répétitifs
 → Toute personne qui a dû retaper quelque chose qu'elle avait déjà copié
 
-Votre presse-papiers vous appartient. Votre temps vous appartient. PasteFlow supprime les barrières.
+Votre presse-papiers vous appartient. Votre temps vous appartient. Anti-Paste Bypass supprime les barrières.
 ```
 
 ---
@@ -130,19 +130,19 @@ Votre presse-papiers vous appartient. Votre temps vous appartient. PasteFlow sup
 
 **Título (50 car.):**
 ```
-PasteFlow — Escribe en cualquier lugar
+Anti-Paste Bypass — Escribe en cualquier lugar
 ```
 
 **Resumen (132 car.):**
 ```
-Deja de reescribir. PasteFlow simula escritura humana para eliminar restricciones de pegado. Tu tiempo de vuelta, al instante.
+Deja de reescribir. Anti-Paste Bypass simula escritura humana para eliminar restricciones de pegado. Tu tiempo de vuelta, al instante.
 ```
 
 **Descripción:**
 ```
 Cada día, millones de personas se ven obligadas a reescribir texto que ya tienen — porque un sitio web decidió bloquear el pegado.
 
-PasteFlow te devuelve ese tiempo. En lugar de forzar el pegado, simula escritura humana natural — letra por letra — completamente transparente para cualquier sitio web.
+Anti-Paste Bypass te devuelve ese tiempo. En lugar de forzar el pegado, simula escritura humana natural — letra por letra — completamente transparente para cualquier sitio web.
 
 ── CARACTERÍSTICAS ──
 
@@ -162,19 +162,19 @@ PasteFlow te devuelve ese tiempo. En lugar de forzar el pegado, simula escritura
 
 **Título (50 car.):**
 ```
-PasteFlow — Digite em qualquer lugar
+Anti-Paste Bypass — Digite em qualquer lugar
 ```
 
 **Resumo (132 car.):**
 ```
-Pare de redigitar. PasteFlow simula digitação humana para eliminar restrições de colagem. Seu tempo de volta, instantaneamente.
+Pare de redigitar. Anti-Paste Bypass simula digitação humana para eliminar restrições de colagem. Seu tempo de volta, instantaneamente.
 ```
 
 **Descrição:**
 ```
 Todo dia, milhões de pessoas são forçadas a redigitar textos que já têm — porque um site decidiu bloquear a colagem.
 
-PasteFlow te devolve esse tempo. Em vez de forçar a colagem, simula digitação humana natural — letra por letra — completamente invisível para qualquer site.
+Anti-Paste Bypass te devolve esse tempo. Em vez de forçar a colagem, simula digitação humana natural — letra por letra — completamente invisível para qualquer site.
 
 ── RECURSOS ──
 
@@ -194,19 +194,19 @@ PasteFlow te devolve esse tempo. Em vez de forçar a colagem, simula digitação
 
 **Titolo (50 car.):**
 ```
-PasteFlow — Digita ovunque, risparmia tempo
+Anti-Paste Bypass — Digita ovunque, risparmia tempo
 ```
 
 **Riassunto (132 car.):**
 ```
-Smetti di riscrivere. PasteFlow simula la digitazione umana per rimuovere le restrizioni d'incollaggio. Il tuo tempo, subito.
+Smetti di riscrivere. Anti-Paste Bypass simula la digitazione umana per rimuovere le restrizioni d'incollaggio. Il tuo tempo, subito.
 ```
 
 **Descrizione:**
 ```
 Ogni giorno, milioni di persone sono costrette a riscrivere testo che già hanno — perché un sito ha deciso di bloccare l'incollaggio.
 
-PasteFlow ti ridà quel tempo. Invece di forzare l'incollaggio, simula una digitazione umana naturale — lettera per lettera — completamente invisibile per qualsiasi sito.
+Anti-Paste Bypass ti ridà quel tempo. Invece di forzare l'incollaggio, simula una digitazione umana naturale — lettera per lettera — completamente invisibile per qualsiasi sito.
 
 ── FUNZIONALITÀ ──
 
@@ -226,19 +226,19 @@ PasteFlow ti ridà quel tempo. Invece di forzare l'incollaggio, simula una digit
 
 **Titel (50 Zeichen):**
 ```
-PasteFlow — Überall tippen, Zeit sparen
+Anti-Paste Bypass — Überall tippen, Zeit sparen
 ```
 
 **Zusammenfassung (132 Zeichen):**
 ```
-Schluss mit dem Abtippen. PasteFlow simuliert menschliches Tippen, um Einfüge-Sperren zu entfernen. Deine Zeit zurück.
+Schluss mit dem Abtippen. Anti-Paste Bypass simuliert menschliches Tippen, um Einfüge-Sperren zu entfernen. Deine Zeit zurück.
 ```
 
 **Beschreibung:**
 ```
 Jeden Tag werden Millionen Menschen gezwungen, Text erneut einzutippen, den sie bereits haben — weil eine Website das Einfügen blockiert hat.
 
-PasteFlow gibt dir diese Zeit zurück. Statt das Einfügen zu erzwingen, simuliert es natürliches, menschliches Tippen — Buchstabe für Buchstabe — vollständig unsichtbar für jede Website.
+Anti-Paste Bypass gibt dir diese Zeit zurück. Statt das Einfügen zu erzwingen, simuliert es natürliches, menschliches Tippen — Buchstabe für Buchstabe — vollständig unsichtbar für jede Website.
 
 ── FUNKTIONEN ──
 
@@ -260,7 +260,7 @@ PasteFlow gibt dir diese Zeit zurück. Statt das Einfügen zu erzwingen, simulie
 
 - **`scripting`** — Required to execute the typing simulation logic (`chrome.scripting.executeScript`) in the active tab after the user triggers the extension via the context menu or keyboard shortcut.
 
-- **`contextMenus`** — Required to display the "Paste with PasteFlow" option in the browser's right-click menu, which is the core entry point for the extension's functionality.
+- **`contextMenus`** — Required to display the "Paste with Anti-Paste Bypass" option in the browser's right-click menu, which is the core entry point for the extension's functionality.
 
 - **`storage`** — Required to locally save the user's preferred typing speed, language setting, and paste history across browser sessions. No data is transmitted externally.
 
@@ -272,4 +272,4 @@ PasteFlow gibt dir diese Zeit zurück. Statt das Einfügen zu erzwingen, simulie
 
 ## 🔒 Privacy Practices
 
-**Data Collection:** The extension collects NO personal data. Text processed by PasteFlow is stored locally only via `chrome.storage.local` and is never transmitted to any external server. In Incognito Mode, even local storage of paste history is disabled entirely.
+**Data Collection:** The extension collects NO personal data. Text processed by Anti-Paste Bypass is stored locally only via `chrome.storage.local` and is never transmitted to any external server. In Incognito Mode, even local storage of paste history is disabled entirely.
