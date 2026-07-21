@@ -7,10 +7,12 @@
     body { margin: 0; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; padding: 20px; font-family: sans-serif; }
     button { padding: 10px 20px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-bottom: 14px; }
     button:hover { background: #818cf8; }
+    #info { color: #888; font-size: 12px; margin-bottom: 8px; }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,1,300;9..144,0,400;9..144,1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,1,300;9..144,0,400;9..144,1,400&family=JetBrains+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="info">Format Tuile 440×280 (Très lisible)</div>
   <button onclick="download()">⬇️ Télécharger PNG 440×280</button>
   <canvas id="canvas" width="440" height="280" style="border:1px solid #333;"></canvas>
 
@@ -22,108 +24,65 @@
     async function draw() {
       await document.fonts.ready;
 
-      // Background
+      // 1. Background profond
       ctx.fillStyle = '#06060a';
       ctx.fillRect(0, 0, W, H);
 
-      // Grid
-      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      // 2. Grille subtile en fond
+      ctx.strokeStyle = 'rgba(255,255,255,0.03)';
       ctx.lineWidth = 1;
       for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
       for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
 
-      // Glow violet (top right)
-      const glow = ctx.createRadialGradient(360, 60, 0, 360, 60, 220);
-      glow.addColorStop(0, 'rgba(99,102,241,0.5)');
-      glow.addColorStop(0.5, 'rgba(99,102,241,0.15)');
-      glow.addColorStop(1, 'transparent');
-      ctx.fillStyle = glow;
+      // 3. Énorme Halo violet central/droite pour attirer l'œil
+      const mainGlow = ctx.createRadialGradient(W/2, H/2 + 20, 0, W/2, H/2 + 20, 240);
+      mainGlow.addColorStop(0, 'rgba(99,102,241,0.4)');
+      mainGlow.addColorStop(0.5, 'rgba(99,102,241,0.1)');
+      mainGlow.addColorStop(1, 'transparent');
+      ctx.fillStyle = mainGlow;
       ctx.fillRect(0, 0, W, H);
 
-      // Left subtle glow
-      const glowL = ctx.createRadialGradient(60, 200, 0, 60, 200, 160);
-      glowL.addColorStop(0, 'rgba(99,102,241,0.12)');
-      glowL.addColorStop(1, 'transparent');
-      ctx.fillStyle = glowL;
-      ctx.fillRect(0, 0, W, H);
+      // 4. Logo géant transparent au centre
+      ctx.font = '140px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.globalAlpha = 0.08;
+      ctx.fillText('⌨️', W/2, H/2 + 10);
+      ctx.globalAlpha = 1.0;
 
-      // Corner labels
-      ctx.font = '500 8px "JetBrains Mono"';
-      ctx.fillStyle = 'rgba(255,255,255,0.28)';
-      ctx.textAlign = 'left';
-      ctx.fillText('◻ ANTIPASTE · v26.7.21', 14, 18);
-      ctx.textAlign = 'right';
-      ctx.fillText('◻ BYPASS ENGINE', W - 14, 18);
-      ctx.fillText('◻ CHROME MV3', W - 14, H - 10);
-      ctx.textAlign = 'left';
-      ctx.fillText('◻ SECURE · ANTI-AI', 14, H - 10);
-
-      // Bracket TL
-      ctx.strokeStyle = 'rgba(99,102,241,0.6)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(14, 30); ctx.lineTo(14, 26); ctx.lineTo(18, 26); ctx.stroke();
-      // Bracket BR
-      ctx.beginPath(); ctx.moveTo(W - 18, H - 26); ctx.lineTo(W - 14, H - 26); ctx.lineTo(W - 14, H - 30); ctx.stroke();
-
-      // Eyebrow
+      // 5. Eyebrow "CHROME EXTENSION"
       ctx.fillStyle = 'rgba(129,140,248,0.9)';
-      ctx.font = '500 8px "JetBrains Mono"';
-      ctx.letterSpacing = '2px';
-      ctx.textAlign = 'left';
-      ctx.fillText('CHROME EXTENSION', 28, 58);
+      ctx.font = '600 10px "JetBrains Mono"';
+      ctx.letterSpacing = '3px';
+      ctx.textAlign = 'center';
+      ctx.fillText('CHROME EXTENSION', W/2, 60);
       ctx.letterSpacing = '0px';
 
-      // Title line 1
+      // 6. Titre Géant au centre (Fraunces)
       ctx.fillStyle = '#f5f5f7';
       ctx.font = '300 52px "Fraunces"';
-      ctx.fillText('Anti-Paste', 24, 118);
+      ctx.fillText('Anti-Paste', W/2, 120);
 
-      // Title line 2 (italic violet)
-      const grad = ctx.createLinearGradient(24, 0, 250, 0);
+      // 7. Mot "Bypass" en Italique Violet éclatant
+      const grad = ctx.createLinearGradient(W/2 - 80, 0, W/2 + 80, 0);
       grad.addColorStop(0, '#818cf8');
       grad.addColorStop(1, '#6366f1');
       ctx.fillStyle = grad;
-      ctx.font = 'italic 300 52px "Fraunces"';
-      ctx.fillText('Bypass', 24, 172);
+      ctx.font = 'italic 300 56px "Fraunces"';
+      ctx.fillText('Bypass', W/2, 175);
 
-      // Tagline
-      ctx.fillStyle = 'rgba(180,180,196,0.8)';
-      ctx.font = '400 12px "Inter"';
-      ctx.fillText('Stop retyping. Paste anywhere.', 24, 200);
+      // 8. Tagline minimaliste avec icône clavier
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      ctx.font = '400 16px "Inter"';
+      ctx.fillText('Paste anywhere.', W/2, 230);
 
-      // Shortcut badge
-      const bW = 174, bH = 26, bX = 24, bY = 212;
-      ctx.fillStyle = 'rgba(255,255,255,0.05)';
-      roundRect(ctx, bX, bY, bW, bH, 13);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(255,255,255,0.1)';
-      ctx.lineWidth = 1;
-      roundRect(ctx, bX, bY, bW, bH, 13);
-      ctx.stroke();
-      ctx.fillStyle = 'rgba(255,255,255,0.65)';
-      ctx.font = '500 10px "JetBrains Mono"';
-      ctx.textAlign = 'center';
-      ctx.fillText('⌘/Ctrl + Shift + V', bX + bW / 2, bY + 17);
-      ctx.textAlign = 'left';
-
-      // Flags
-      ctx.font = '13px serif';
-      ['🇬🇧','🇫🇷','🇪🇸','🇵🇹','🇮🇹','🇩🇪'].forEach((f, i) => {
-        ctx.fillText(f, 24 + i * 22, H - 16);
-      });
-    }
-
-    function roundRect(ctx, x, y, w, h, r) {
-      ctx.beginPath();
-      ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
-      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-      ctx.lineTo(x + w, y + h - r);
-      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-      ctx.lineTo(x + r, y + h);
-      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
-      ctx.closePath();
+      // 9. Bordure lumineuse subtile en bas
+      const borderGrad = ctx.createLinearGradient(0, 0, W, 0);
+      borderGrad.addColorStop(0, 'transparent');
+      borderGrad.addColorStop(0.5, '#6366f1');
+      borderGrad.addColorStop(1, 'transparent');
+      ctx.fillStyle = borderGrad;
+      ctx.fillRect(W/2 - 100, H - 2, 200, 2);
     }
 
     function download() {
