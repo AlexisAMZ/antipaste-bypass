@@ -159,13 +159,29 @@ async function simulateTypingInPage(text, speed, antiAiMode) {
       // Simulation de frappe humaine
       let currentDelay = speed;
       
-      // Jitter aléatoire (+/- 40% de la vitesse de base)
+      // Jitter aléatoire (+/- 40% de la vitesse de base) pour chaque touche
       const jitter = speed * 0.4;
       currentDelay += (Math.random() * jitter * 2) - jitter;
       
-      // Pause plus longue sur les espaces et ponctuations
+      if (antiAiMode) {
+        // Hésitation majeure (2% de chance) : l'humain cherche une touche ou perd le fil
+        if (Math.random() < 0.02) {
+          currentDelay += 400 + (Math.random() * 800); // Pause de 400ms à 1.2s
+        }
+        
+        // Variation de rythme "Fatigue / Burst" : modifie la vitesse dynamiquement
+        // Multiplicateur aléatoire entre 0.6x (plus rapide) et 2.5x (plus lent)
+        currentDelay *= (0.6 + Math.random() * 1.9);
+      }
+      
+      // Pause naturelle sur la ponctuation et les espaces
       if ([' ', '.', ',', '!', '?', '\n'].includes(char)) {
-        currentDelay += speed * (Math.random() * 3 + 2); // 2x à 5x plus lent
+        currentDelay += speed * (Math.random() * 3 + 2); // 2x à 5x plus lent par défaut
+        
+        if (antiAiMode && Math.random() < 0.25) {
+          // Grosse pause de fin de mot/phrase (1 fois sur 4)
+          currentDelay += 300 + (Math.random() * 500); 
+        }
       }
       
       await new Promise(r => setTimeout(r, Math.max(1, currentDelay)));
