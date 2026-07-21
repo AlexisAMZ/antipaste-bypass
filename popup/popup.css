@@ -1,27 +1,160 @@
-/* Surcharges Bootstrap minimales pour le Popup */
+/* Surcharges Bootstrap et Design "Dark Mode Premium" */
+
+:root {
+  --bg-color: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --danger-neon: #ef4444;
+  --focus-ring: rgba(59, 130, 246, 0.5);
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-textarea {
+/* Typographie */
+h5 {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+.text-muted { color: var(--text-muted) !important; }
+
+/* Cartes (Glassmorphism) */
+.card {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Zone de texte */
+textarea.form-control {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: var(--text-primary) !important;
+  border-radius: 12px;
   resize: none;
-  font-family: monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+textarea.form-control:focus {
+  background-color: rgba(15, 23, 42, 1) !important;
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px var(--focus-ring) !important;
+}
+textarea::placeholder {
+  color: #475569 !important;
 }
 
+/* Sélecteur de vitesse */
+select.form-select {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+select.form-select:focus {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px var(--focus-ring) !important;
+}
+
+/* Toggles personnalisés (Style iOS Moderne) */
+.form-check-input {
+  width: 44px !important;
+  height: 24px !important;
+  background-color: rgba(255,255,255,0.1) !important;
+  border: none !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.form-check-input:checked {
+  background-color: var(--accent-blue) !important;
+}
+/* Style spécifique pour Anti-IA */
+#anti-ai-toggle:checked {
+  background-color: var(--danger-neon) !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5) !important;
+}
+/* Style spécifique pour Incognito */
+#incognito-toggle:checked {
+  background-color: #64748b !important; /* Gris neutre/stealth */
+  box-shadow: 0 0 10px rgba(100, 116, 139, 0.5) !important;
+}
+
+/* Labels des toggles */
+.form-check-label {
+  padding-left: 8px;
+  font-size: 13px;
+  color: #cbd5e1 !important;
+  transition: color 0.3s ease;
+}
+#anti-ai-toggle:checked ~ .form-check-label {
+  color: var(--danger-neon) !important;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+#incognito-toggle:checked ~ .form-check-label {
+  color: #e2e8f0 !important;
+}
+
+/* Historique */
+.list-group-item {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+  color: var(--text-muted) !important;
+  font-size: 12px;
+  padding: 10px 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.list-group-item:last-child {
+  border-bottom: none !important;
+}
+.list-group-item:hover {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--text-primary) !important;
+  padding-left: 18px; /* Micro-animation : décale le texte */
+}
+
+/* Bouton Effacer */
+#clear-history {
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  transition: all 0.2s ease;
+}
+#clear-history:hover {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Status Message Animation */
 .opacity-0 { opacity: 0; }
 .opacity-100 { opacity: 1; }
-.transition-opacity { transition: opacity 0.3s ease; }
-
-.history-item {
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.85rem;
-  padding: 8px 12px;
-}
-
-.history-item:hover {
-  background-color: #f8f9fa;
-  color: #2c3e50; /* Primary Flatly color */
-}
+.transition-opacity { transition: opacity 0.3s ease-in-out; }
+.text-success { color: #10b981 !important; }
