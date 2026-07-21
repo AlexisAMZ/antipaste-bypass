@@ -273,3 +273,10 @@ FUNKTIONEN
 ## 🔒 Privacy Practices
 
 **Data Collection:** The extension collects NO personal data. Text processed by Anti-Paste Bypass is stored locally only via `chrome.storage.local` and is never transmitted to any external server. In Incognito Mode, even local storage of paste history is disabled entirely.
+
+## 🎯 Objectif Unique (Single Purpose Description)
+*(À renseigner dans la section "Description de l'objectif de l'extension" du Developer Dashboard)*
+
+**EN :** "The single purpose of this extension is to allow users to paste text into website input fields that technically block or restrict the standard paste functionality, by simulating natural keyboard typing events."
+
+**FR :** "L'objectif unique de cette extension est de permettre aux utilisateurs de coller du texte dans des champs de saisie de sites web qui bloquent ou restreignent techniquement la fonction de collage standard, en simulant des événements de frappe au clavier naturels."
