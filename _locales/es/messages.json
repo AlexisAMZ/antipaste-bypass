@@ -85,5 +85,8 @@
   },
   "step3Desc": {
     "message": "En el sitio bloqueado, haz Clic Derecho -> Pegar con Anti-Paste Bypass."
+  },
+  "antiAILabel": {
+    "message": "Modo Ultra Humano (Errores y correcciones)"
   }
 }

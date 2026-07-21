@@ -37,16 +37,23 @@
       <!-- Settings Card -->
       <div class="card shadow-sm border-0 mb-3">
         <div class="card-body p-3">
-          <label for="speed-select" class="form-label fw-bold d-flex justify-content-between">
-            <span data-i18n="speedLabel">Vitesse de frappe</span>
-            <span class="badge bg-info rounded-pill" title="Simulation humaine aléatoire activée">?</span>
-          </label>
-          <select id="speed-select" class="form-select form-select-sm">
-            <option value="50" data-i18n="speedSlow">Lente (50ms)</option>
-            <option value="15" selected data-i18n="speedNormal">Normale (15ms)</option>
-            <option value="5" data-i18n="speedFast">Rapide (5ms)</option>
-            <option value="0" data-i18n="speedInstant">Instantanée (0ms)</option>
-          </select>
+          <!-- Speed -->
+          <div class="mb-3">
+            <label for="speed-select" class="form-label fw-bold d-flex justify-content-between">
+              <span data-i18n="speedLabel">Vitesse de frappe</span>
+            </label>
+            <select id="speed-select" class="form-select form-select-sm">
+              <option value="50" data-i18n="speedSlow">Lente (50ms)</option>
+              <option value="15" selected data-i18n="speedNormal">Normale (15ms)</option>
+              <option value="5" data-i18n="speedFast">Rapide (5ms)</option>
+              <option value="0" data-i18n="speedInstant">Instantanée (0ms)</option>
+            </select>
+          </div>
+          <!-- Anti-AI Toggle -->
+          <div class="form-check form-switch mb-0 d-flex align-items-center">
+            <input class="form-check-input mt-0 me-2" type="checkbox" role="switch" id="anti-ai-toggle">
+            <label class="form-check-label small fw-semibold text-danger" for="anti-ai-toggle" data-i18n="antiAILabel" style="cursor: pointer;">Mode Ultra-Humain (Fautes & Corrections)</label>
+          </div>
         </div>
       </div>
       

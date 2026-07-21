@@ -85,5 +85,8 @@
   },
   "step3Desc": {
     "message": "Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste Bypass."
+  },
+  "antiAILabel": {
+    "message": "Mode Ultra-Humain (Fautes & Corrections)"
   }
 }

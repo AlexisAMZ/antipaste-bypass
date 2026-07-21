@@ -87,5 +87,8 @@
   },
   "step3Desc": {
     "message": "On the blocked site, Right-Click -> Paste with Anti-Paste Bypass."
+  },
+  "antiAILabel": {
+    "message": "Ultra-Human Mode (Typos & Corrections)"
   }
 }

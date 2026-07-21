@@ -85,5 +85,8 @@
   },
   "step3Desc": {
     "message": "Auf der blockierten Seite: Rechtsklick -> Einfügen mit Anti-Paste Bypass."
+  },
+  "antiAILabel": {
+    "message": "Ultra-Menschlicher Modus (Tippfehler & Korrekturen)"
   }
 }

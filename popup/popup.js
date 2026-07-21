@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 2. Éléments DOM
   const speedSelect = document.getElementById('speed-select');
+  const antiAiToggle = document.getElementById('anti-ai-toggle');
   const savedText = document.getElementById('saved-text');
   const statusMessage = document.getElementById('status-message');
   const historyList = document.getElementById('history-list');
@@ -43,9 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 3. Charger les données
-  chrome.storage.local.get(['typingSpeed', 'savedText', 'pasteHistory'], (result) => {
+  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'savedText', 'pasteHistory'], (result) => {
     if (result.typingSpeed !== undefined) {
       speedSelect.value = result.typingSpeed;
+    }
+    if (result.antiAiMode !== undefined) {
+      antiAiToggle.checked = result.antiAiMode;
     }
     if (result.savedText !== undefined) {
       savedText.value = result.savedText;
@@ -57,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
   speedSelect.addEventListener('change', (e) => {
     const value = parseInt(e.target.value, 10);
     chrome.storage.local.set({ typingSpeed: value }, showSavedIndicator);
+  });
+
+  antiAiToggle.addEventListener('change', (e) => {
+    chrome.storage.local.set({ antiAiMode: e.target.checked }, showSavedIndicator);
   });
 
   savedText.addEventListener('input', (e) => {

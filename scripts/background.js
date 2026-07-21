@@ -27,7 +27,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "anti-paste-bypass") {
     try {
-      const { savedText, typingSpeed = 10 } = await chrome.storage.local.get(['savedText', 'typingSpeed']);
+      const { savedText, typingSpeed = 10, antiAiMode = false } = await chrome.storage.local.get(['savedText', 'typingSpeed', 'antiAiMode']);
       const text = savedText || "";
       
       if (!text.trim()) {
@@ -51,7 +51,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       await chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: simulateTypingInPage,
-        args: [text, parseInt(typingSpeed, 10)]
+        args: [text, parseInt(typingSpeed, 10), antiAiMode]
       });
     } catch (err) {
       console.error("Erreur :", err);
@@ -61,7 +61,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 });
 
 // Cette fonction sera exécutée directement DANS le contexte de la page web
-async function simulateTypingInPage(text, speed) {
+async function simulateTypingInPage(text, speed, antiAiMode) {
   // 1. Trouver le champ ciblé (le dernier élément cliqué ou actif)
   // On privilégie l'élément actif actuel (l'utilisateur a normalement cliqué dans le champ avant le clic droit)
   const element = document.activeElement;
@@ -100,6 +100,53 @@ async function simulateTypingInPage(text, speed) {
   for (let i = 0; i < text.length; i++) {
     const char = text[i];
     
+    // Logique Anti-IA : Faire une faute de frappe humaine (5% de chance)
+    if (antiAiMode && speed > 0 && i > 0 && Math.random() < 0.05 && char.match(/[a-z]/i)) {
+      // 1. Choisir une lettre aléatoire pour l'erreur
+      const typoChar = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+      
+      // 2. Taper la mauvaise lettre
+      element.dispatchEvent(new KeyboardEvent('keydown', { key: typoChar, bubbles: true }));
+      element.dispatchEvent(new KeyboardEvent('keypress', { key: typoChar, bubbles: true }));
+      insertCharacter(element, typoChar);
+      element.dispatchEvent(new Event('input', { bubbles: true }));
+      element.dispatchEvent(new KeyboardEvent('keyup', { key: typoChar, bubbles: true }));
+      
+      // 3. Pause de réalisation de l'erreur (temps de réaction humain : 150-300ms)
+      await new Promise(r => setTimeout(r, 150 + Math.random() * 150));
+      
+      // 4. Appuyer sur Backspace
+      element.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace', code: 'Backspace', keyCode: 8, bubbles: true }));
+      
+      // 5. Retirer le caractère
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+        const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set;
+        const newValue = element.value.slice(0, -1);
+        if (element.tagName === 'INPUT' && nativeInputValueSetter) {
+          nativeInputValueSetter.call(element, newValue);
+        } else if (element.tagName === 'TEXTAREA' && nativeTextAreaValueSetter) {
+          nativeTextAreaValueSetter.call(element, newValue);
+        } else {
+          element.value = newValue;
+        }
+      } else if (element.isContentEditable) {
+        element.textContent = element.textContent.slice(0, -1);
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      
+      element.dispatchEvent(new Event('input', { bubbles: true }));
+      element.dispatchEvent(new KeyboardEvent('keyup', { key: 'Backspace', code: 'Backspace', keyCode: 8, bubbles: true }));
+      
+      // 6. Pause avant de retaper la bonne lettre (50-100ms)
+      await new Promise(r => setTimeout(r, 50 + Math.random() * 50));
+    }
+
     element.dispatchEvent(new KeyboardEvent('keydown', { key: char, bubbles: true }));
     element.dispatchEvent(new KeyboardEvent('keypress', { key: char, bubbles: true }));
     
