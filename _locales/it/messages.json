@@ -132,7 +132,7 @@
     "message": "Scorciatoia da Tastiera"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V per incollare senza clic destro."
+    "message": "{PASTE} per incollare senza clic destro."
   },
   "ob_f5Title": {
     "message": "Modalità Incognito"
@@ -162,7 +162,7 @@
     "message": "Trova Anti-Paste Bypass e clicca il pin 📌"
   },
   "ob_pin3": {
-    "message": "Copia testo (Cmd+C), poi usa Option+Shift+V o il pulsante 🧩"
+    "message": "Copia testo ({COPY}), poi usa {PASTE} o il pulsante 🧩"
   },
   "ob_letsgo": {
     "message": "Andiamo →"

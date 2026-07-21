@@ -134,7 +134,7 @@
     "message": "Keyboard Shortcut"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V to paste without right-clicking."
+    "message": "{PASTE} to paste without right-clicking."
   },
   "ob_f5Title": {
     "message": "Incognito Mode"
@@ -164,7 +164,7 @@
     "message": "Find Anti-Paste Bypass and click the pin 📌"
   },
   "ob_pin3": {
-    "message": "Copy text (Cmd+C), then use Option+Shift+V or the 🧩 button"
+    "message": "Copy text ({COPY}), then use {PASTE} or the 🧩 button"
   },
   "ob_letsgo": {
     "message": "Let's go →"

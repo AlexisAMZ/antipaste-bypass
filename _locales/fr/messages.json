@@ -132,7 +132,7 @@
     "message": "Raccourci Clavier"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V pour coller sans faire de clic droit."
+    "message": "{PASTE} pour coller sans faire de clic droit."
   },
   "ob_f5Title": {
     "message": "Mode Incognito"
@@ -162,7 +162,7 @@
     "message": "Trouvez Anti-Paste Bypass et cliquez sur l'épingle 📌"
   },
   "ob_pin3": {
-    "message": "Copiez du texte (Cmd+C), puis utilisez Option+Shift+V ou le bouton 🧩"
+    "message": "Copiez du texte ({COPY}), puis utilisez {PASTE} ou le bouton 🧩"
   },
   "ob_letsgo": {
     "message": "C'est parti →"

@@ -132,7 +132,7 @@
     "message": "Atalho de Teclado"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V para colar sem clicar com o botão direito."
+    "message": "{PASTE} para colar sem clicar com o botão direito."
   },
   "ob_f5Title": {
     "message": "Modo Incógnito"
@@ -162,7 +162,7 @@
     "message": "Encontre Anti-Paste Bypass e clique no pin 📌"
   },
   "ob_pin3": {
-    "message": "Copie texto (Cmd+C), depois use Option+Shift+V ou o botão 🧩"
+    "message": "Copie texto ({COPY}), depois use {PASTE} ou o botão 🧩"
   },
   "ob_letsgo": {
     "message": "Vamos lá →"

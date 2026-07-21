@@ -132,7 +132,7 @@
     "message": "Tastenkürzel"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V zum Einfügen ohne Rechtsklick."
+    "message": "{PASTE} zum Einfügen ohne Rechtsklick."
   },
   "ob_f5Title": {
     "message": "Inkognito-Modus"
@@ -162,7 +162,7 @@
     "message": "Finde Anti-Paste Bypass und klicke auf die Nadel 📌"
   },
   "ob_pin3": {
-    "message": "Kopiere Text (Cmd+C), dann nutze Option+Shift+V oder die 🧩 Schaltfläche"
+    "message": "Kopiere Text ({COPY}), dann nutze {PASTE} oder die 🧩 Schaltfläche"
   },
   "ob_letsgo": {
     "message": "Los geht's →"

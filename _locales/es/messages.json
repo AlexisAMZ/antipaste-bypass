@@ -132,7 +132,7 @@
     "message": "Atajo de Teclado"
   },
   "ob_f4Desc": {
-    "message": "Option + Shift + V para pegar sin clic derecho."
+    "message": "{PASTE} para pegar sin clic derecho."
   },
   "ob_f5Title": {
     "message": "Modo Incógnito"
@@ -162,7 +162,7 @@
     "message": "Encuentra Anti-Paste Bypass y haz clic en el pin 📌"
   },
   "ob_pin3": {
-    "message": "Copia texto (Cmd+C), luego usa Option+Shift+V o el botón 🧩"
+    "message": "Copia texto ({COPY}), luego usa {PASTE} o el botón 🧩"
   },
   "ob_letsgo": {
     "message": "¡Empezar →"

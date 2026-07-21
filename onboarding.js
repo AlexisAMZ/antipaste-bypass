@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   let selectedLang = 'en';
   let isAnimating = false;
 
+  // ── Détection OS ──
+  const isMac = navigator.platform.toUpperCase().includes('MAC') ||
+                navigator.userAgent.toUpperCase().includes('MAC OS');
+  const COPY_KEY  = isMac ? 'Cmd+C'           : 'Ctrl+C';
+  const PASTE_KEY = isMac ? 'Option+Shift+V'  : 'Alt+Shift+V';
+
   // Récupérer la langue déjà sauvegardée
   const stored = await chrome.storage.local.get(['userLang']);
   if (stored.userLang) {
@@ -64,7 +70,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (messages[key]?.message) {
-        el.textContent = messages[key].message;
+        // Remplacer les placeholders OS
+        const text = messages[key].message
+          .replace(/\{COPY\}/g, COPY_KEY)
+          .replace(/\{PASTE\}/g, PASTE_KEY);
+        el.textContent = text;
       }
     });
   }
