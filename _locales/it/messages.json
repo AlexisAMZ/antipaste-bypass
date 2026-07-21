@@ -88,5 +88,11 @@
   },
   "antiAILabel": {
     "message": "Modalità Ultra Umana (Errori e correzioni)"
+  },
+  "commandDescription": {
+    "message": "Incolla con Anti-Paste Bypass"
+  },
+  "incognitoLabel": {
+    "message": "Modalità Incognito (Non salvare la cronologia)"
   }
 }

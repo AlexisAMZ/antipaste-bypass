@@ -8,8 +8,19 @@
     "activeTab",
     "scripting",
     "storage",
-    "contextMenus"
+    "contextMenus",
+    "clipboardRead",
+    "offscreen"
   ],
+  "commands": {
+    "paste-bypass": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Alt+Shift+V"
+      },
+      "description": "__MSG_commandDescription__"
+    }
+  },
   "background": {
     "service_worker": "scripts/background.js"
   },

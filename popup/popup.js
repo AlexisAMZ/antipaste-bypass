@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Éléments DOM
   const speedSelect = document.getElementById('speed-select');
   const antiAiToggle = document.getElementById('anti-ai-toggle');
+  const incognitoToggle = document.getElementById('incognito-toggle');
   const savedText = document.getElementById('saved-text');
   const statusMessage = document.getElementById('status-message');
   const historyList = document.getElementById('history-list');
@@ -44,12 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 3. Charger les données
-  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'savedText', 'pasteHistory'], (result) => {
+  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode', 'savedText', 'pasteHistory'], (result) => {
     if (result.typingSpeed !== undefined) {
       speedSelect.value = result.typingSpeed;
     }
     if (result.antiAiMode !== undefined) {
       antiAiToggle.checked = result.antiAiMode;
+    }
+    if (result.incognitoMode !== undefined) {
+      incognitoToggle.checked = result.incognitoMode;
     }
     if (result.savedText !== undefined) {
       savedText.value = result.savedText;
@@ -67,8 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.local.set({ antiAiMode: e.target.checked }, showSavedIndicator);
   });
 
+  incognitoToggle.addEventListener('change', (e) => {
+    chrome.storage.local.set({ incognitoMode: e.target.checked }, showSavedIndicator);
+  });
+
   savedText.addEventListener('input', (e) => {
     const text = e.target.value;
+    
+    // Si Incognito est activé, on garde le texte dans le textarea mais on ne le sauvegarde PAS
+    if (incognitoToggle.checked) {
+      chrome.storage.local.set({ savedText: text }); // On le sauvegarde temporairement pour l'injecter 
+      // Mais on ne le met pas dans l'historique
+      showSavedIndicator();
+      return;
+    }
+    
     chrome.storage.local.set({ savedText: text }, showSavedIndicator);
     
     // Mettre à jour l'historique (debounced/on blur pour éviter trop d'ajouts ?)
@@ -77,8 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   savedText.addEventListener('change', (e) => {
     const text = e.target.value.trim();
-    if (text) {
-      chrome.storage.local.get(['pasteHistory'], (result) => {
+    if (!text.trim() || incognitoToggle.checked) return;
+
+    chrome.storage.local.get(['pasteHistory'], (result) => {
         let history = result.pasteHistory || [];
         // Enlever le texte s'il existe déjà pour le remonter
         history = history.filter(item => item !== text);

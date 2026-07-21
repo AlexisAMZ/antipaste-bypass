@@ -27,7 +27,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "anti-paste-bypass") {
     try {
-      const { savedText, typingSpeed = 10, antiAiMode = false } = await chrome.storage.local.get(['savedText', 'typingSpeed', 'antiAiMode']);
+      const { savedText, typingSpeed = 10, antiAiMode = false, incognitoMode = false } = await chrome.storage.local.get(['savedText', 'typingSpeed', 'antiAiMode', 'incognitoMode']);
       const text = savedText || "";
       
       if (!text.trim()) {
@@ -53,12 +53,78 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         func: simulateTypingInPage,
         args: [text, parseInt(typingSpeed, 10), antiAiMode]
       });
+      
+      // Sécurité : Vider le texte si le mode Incognito est actif
+      if (incognitoMode) {
+        await chrome.storage.local.set({ savedText: "" });
+      }
     } catch (err) {
       console.error("Erreur :", err);
       await showAlert(tab.id, "❌ Erreur : " + err.message);
     }
   }
 });
+
+// --- GESTION DU RACCOURCI CLAVIER ---
+chrome.commands.onCommand.addListener(async (command, tab) => {
+  if (command === "paste-bypass") {
+    try {
+      // Lire le presse-papiers système via le document Offscreen
+      const clipboardText = await getClipboardFromOffscreen();
+      
+      const { typingSpeed = 10, antiAiMode = false, incognitoMode = false } = await chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode']);
+      // Si incognitoMode est activé, on NE PASSE PAS par savedText, on utilise direct clipboardText
+      const textToPaste = clipboardText || "";
+      
+      if (!textToPaste.trim()) {
+        await showAlert(tab.id, "❌ Votre presse-papiers est vide.");
+        return;
+      }
+      
+      await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: simulateTypingInPage,
+        args: [textToPaste, parseInt(typingSpeed, 10), antiAiMode]
+      });
+      
+    } catch (err) {
+      console.error("Erreur raccourci :", err);
+      await showAlert(tab.id, "❌ Erreur raccourci : " + err.message);
+    }
+  }
+});
+
+// --- GESTION OFFSCREEN (Lecture du presse-papiers) ---
+let creating; // Promise globale pour éviter de créer le document plusieurs fois en même temps
+async function setupOffscreenDocument() {
+  const offscreenUrl = chrome.runtime.getURL('offscreen/offscreen.html');
+  const existingContexts = await chrome.runtime.getContexts({
+    contextTypes: ['OFFSCREEN_DOCUMENT'],
+    documentUrls: [offscreenUrl]
+  });
+
+  if (existingContexts.length > 0) {
+    return;
+  }
+
+  if (creating) {
+    await creating;
+  } else {
+    creating = chrome.offscreen.createDocument({
+      url: 'offscreen/offscreen.html',
+      reasons: ['CLIPBOARD'],
+      justification: 'Read clipboard text to bypass paste block'
+    });
+    await creating;
+    creating = null;
+  }
+}
+
+async function getClipboardFromOffscreen() {
+  await setupOffscreenDocument();
+  const text = await chrome.runtime.sendMessage({ type: 'read-clipboard' });
+  return text;
+}
 
 // Cette fonction sera exécutée directement DANS le contexte de la page web
 async function simulateTypingInPage(text, speed, antiAiMode) {

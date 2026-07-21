@@ -88,5 +88,11 @@
   },
   "antiAILabel": {
     "message": "Modo Ultra Humano (Errores y correcciones)"
+  },
+  "commandDescription": {
+    "message": "Pegar con Anti-Paste Bypass"
+  },
+  "incognitoLabel": {
+    "message": "Modo Incógnito (No guardar historial)"
   }
 }

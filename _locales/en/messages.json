@@ -90,5 +90,11 @@
   },
   "antiAILabel": {
     "message": "Ultra-Human Mode (Typos & Corrections)"
+  },
+  "commandDescription": {
+    "message": "Paste with Anti-Paste Bypass"
+  },
+  "incognitoLabel": {
+    "message": "Incognito Mode (Do not save history)"
   }
 }

@@ -88,5 +88,11 @@
   },
   "antiAILabel": {
     "message": "Ultra-Menschlicher Modus (Tippfehler & Korrekturen)"
+  },
+  "commandDescription": {
+    "message": "Mit Anti-Paste Bypass einfügen"
+  },
+  "incognitoLabel": {
+    "message": "Inkognito-Modus (Verlauf nicht speichern)"
   }
 }
