@@ -1,120 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
+  <title>Promo 440x280 Generator</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 440px;
-      height: 280px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at top right, #1f2937, #111827);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-    
-    .tech-grid {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-      z-index: 1;
-    }
-
-    .content {
-      z-index: 10;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .icon-container {
-      width: 96px;
-      height: 96px;
-      background: white;
-      border-radius: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(255,255,255,0.1);
-    }
-
-    .icon-container img {
-      width: 64px;
-      height: 64px;
-    }
-
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-
-    p {
-      font-size: 14px;
-      font-weight: 500;
-      color: #9ca3af;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-container {
-      display: flex;
-      gap: 10px;
-      margin-top: 5px;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.1);
-      padding: 6px 12px;
-      border-radius: 50px;
-      font-size: 10px;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(5px);
-    }
-
-    .glow {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, transparent 70%);
-      z-index: 0;
-    }
+    body { margin: 0; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; padding: 20px; font-family: sans-serif; }
+    button { padding: 10px 20px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-bottom: 14px; }
+    button:hover { background: #818cf8; }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,1,300;9..144,0,400;9..144,1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="tech-grid"></div>
-  <div class="glow"></div>
-  
-  <div class="content">
-    <div class="icon-container">
-      <img src="icons/icon-128.png" alt="Logo">
-    </div>
-    
-    <div>
-      <h1>Anti-Paste Bypass</h1>
-      <p>Smart Clipboard Bypass.</p>
-    </div>
+  <button onclick="download()">⬇️ Télécharger PNG 440×280</button>
+  <canvas id="canvas" width="440" height="280" style="border:1px solid #333;"></canvas>
 
-    <div class="badge-container">
-      <div class="badge">🚀 Fast</div>
-      <div class="badge">🤖 Anti-AI</div>
-    </div>
-  </div>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const W = 440, H = 280;
+
+    async function draw() {
+      await document.fonts.ready;
+
+      // Background
+      ctx.fillStyle = '#06060a';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+      // Glow violet (top right)
+      const glow = ctx.createRadialGradient(360, 60, 0, 360, 60, 220);
+      glow.addColorStop(0, 'rgba(99,102,241,0.5)');
+      glow.addColorStop(0.5, 'rgba(99,102,241,0.15)');
+      glow.addColorStop(1, 'transparent');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, W, H);
+
+      // Left subtle glow
+      const glowL = ctx.createRadialGradient(60, 200, 0, 60, 200, 160);
+      glowL.addColorStop(0, 'rgba(99,102,241,0.12)');
+      glowL.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowL;
+      ctx.fillRect(0, 0, W, H);
+
+      // Corner labels
+      ctx.font = '500 8px "JetBrains Mono"';
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.textAlign = 'left';
+      ctx.fillText('◻ ANTIPASTE · v26.7.21', 14, 18);
+      ctx.textAlign = 'right';
+      ctx.fillText('◻ BYPASS ENGINE', W - 14, 18);
+      ctx.fillText('◻ CHROME MV3', W - 14, H - 10);
+      ctx.textAlign = 'left';
+      ctx.fillText('◻ SECURE · ANTI-AI', 14, H - 10);
+
+      // Bracket TL
+      ctx.strokeStyle = 'rgba(99,102,241,0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(14, 30); ctx.lineTo(14, 26); ctx.lineTo(18, 26); ctx.stroke();
+      // Bracket BR
+      ctx.beginPath(); ctx.moveTo(W - 18, H - 26); ctx.lineTo(W - 14, H - 26); ctx.lineTo(W - 14, H - 30); ctx.stroke();
+
+      // Eyebrow
+      ctx.fillStyle = 'rgba(129,140,248,0.9)';
+      ctx.font = '500 8px "JetBrains Mono"';
+      ctx.letterSpacing = '2px';
+      ctx.textAlign = 'left';
+      ctx.fillText('CHROME EXTENSION', 28, 58);
+      ctx.letterSpacing = '0px';
+
+      // Title line 1
+      ctx.fillStyle = '#f5f5f7';
+      ctx.font = '300 52px "Fraunces"';
+      ctx.fillText('Anti-Paste', 24, 118);
+
+      // Title line 2 (italic violet)
+      const grad = ctx.createLinearGradient(24, 0, 250, 0);
+      grad.addColorStop(0, '#818cf8');
+      grad.addColorStop(1, '#6366f1');
+      ctx.fillStyle = grad;
+      ctx.font = 'italic 300 52px "Fraunces"';
+      ctx.fillText('Bypass', 24, 172);
+
+      // Tagline
+      ctx.fillStyle = 'rgba(180,180,196,0.8)';
+      ctx.font = '400 12px "Inter"';
+      ctx.fillText('Stop retyping. Paste anywhere.', 24, 200);
+
+      // Shortcut badge
+      const bW = 174, bH = 26, bX = 24, bY = 212;
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      roundRect(ctx, bX, bY, bW, bH, 13);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, bX, bY, bW, bH, 13);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.65)';
+      ctx.font = '500 10px "JetBrains Mono"';
+      ctx.textAlign = 'center';
+      ctx.fillText('⌘/Ctrl + Shift + V', bX + bW / 2, bY + 17);
+      ctx.textAlign = 'left';
+
+      // Flags
+      ctx.font = '13px serif';
+      ['🇬🇧','🇫🇷','🇪🇸','🇵🇹','🇮🇹','🇩🇪'].forEach((f, i) => {
+        ctx.fillText(f, 24 + i * 22, H - 16);
+      });
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'promo_440x280.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    draw();
+  </script>
 </body>
 </html>

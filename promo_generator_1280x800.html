@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshot 1280x800 Generator</title>
+  <style>
+    body { margin: 0; background: #111; display: flex; flex-direction: column; align-items: center; padding: 20px; font-family: sans-serif; }
+    button { padding: 10px 20px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-bottom: 14px; }
+    button:hover { background: #818cf8; }
+    #info { color: #666; font-size: 11px; margin-bottom: 10px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,1,300;9..144,0,400;9..144,1,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="info">Canvas réel : 1280×800px — affiché à 60%</div>
+  <button onclick="download()">⬇️ Télécharger PNG 1280×800</button>
+  <canvas id="canvas" width="1280" height="800" style="width:768px;height:480px;border:1px solid #333;"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const W = 1280, H = 800;
+
+    async function draw() {
+      await document.fonts.ready;
+
+      // ── BG ──
+      ctx.fillStyle = '#06060a';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.035)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 64) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+      for (let y = 0; y < H; y += 64) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+      // Top glow
+      const glowTop = ctx.createRadialGradient(W/2, -60, 0, W/2, -60, 500);
+      glowTop.addColorStop(0, 'rgba(99,102,241,0.45)');
+      glowTop.addColorStop(0.5, 'rgba(99,102,241,0.12)');
+      glowTop.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowTop;
+      ctx.fillRect(0, 0, W, H);
+
+      // Side glows
+      const glowL = ctx.createRadialGradient(0, H/2, 0, 0, H/2, 400);
+      glowL.addColorStop(0, 'rgba(99,102,241,0.15)');
+      glowL.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowL; ctx.fillRect(0, 0, W, H);
+
+      const glowR = ctx.createRadialGradient(W, H/2, 0, W, H/2, 400);
+      glowR.addColorStop(0, 'rgba(99,102,241,0.15)');
+      glowR.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowR; ctx.fillRect(0, 0, W, H);
+
+      // ── Corner labels ──
+      ctx.font = '500 10px "JetBrains Mono"';
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.textAlign = 'left';  ctx.fillText('◻ SYS · ANTIPASTE · v26.7.21', 28, 28);
+      ctx.textAlign = 'right'; ctx.fillText('◻ BYPASS ENGINE · ACTIVE', W-28, 28);
+      ctx.textAlign = 'left';  ctx.fillText('◻ SECURE · ANTI-AI · READY', 28, H-18);
+      ctx.textAlign = 'right'; ctx.fillText('◻ CHROME MV3 · 6 LANGS', W-28, H-18);
+
+      // Corner brackets
+      ctx.strokeStyle = 'rgba(99,102,241,0.55)';
+      ctx.lineWidth = 1.5;
+      const b = 16;
+      ctx.beginPath(); ctx.moveTo(28, 48+b); ctx.lineTo(28, 48); ctx.lineTo(28+b, 48); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(W-28-b, H-38); ctx.lineTo(W-28, H-38); ctx.lineTo(W-28, H-38-b); ctx.stroke();
+
+      // ── TOP SECTION: Header ──
+      // Eyebrow
+      ctx.fillStyle = 'rgba(129,140,248,0.9)';
+      ctx.font = '500 11px "JetBrains Mono"';
+      ctx.letterSpacing = '3px';
+      ctx.textAlign = 'center';
+      ctx.fillText('CHROME EXTENSION · PASTE FREEDOM', W/2, 100);
+      ctx.letterSpacing = '0px';
+
+      // Title
+      ctx.fillStyle = '#f5f5f7';
+      ctx.font = '300 96px "Fraunces"';
+      ctx.textAlign = 'center';
+      ctx.fillText('Anti-Paste Bypass', W/2, 210);
+
+      // Accent underline
+      const ulW = 340, ulX = W/2 - ulW/2;
+      const ulGrad = ctx.createLinearGradient(ulX, 0, ulX + ulW, 0);
+      ulGrad.addColorStop(0, 'transparent');
+      ulGrad.addColorStop(0.3, '#6366f1');
+      ulGrad.addColorStop(0.7, '#818cf8');
+      ulGrad.addColorStop(1, 'transparent');
+      ctx.strokeStyle = ulGrad;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(ulX, 222); ctx.lineTo(ulX + ulW, 222); ctx.stroke();
+
+      // Tagline
+      ctx.fillStyle = 'rgba(180,180,196,0.85)';
+      ctx.font = '400 22px "Inter"';
+      ctx.textAlign = 'center';
+      ctx.fillText('Stop retyping. Paste anywhere. Your time back, instantly.', W/2, 268);
+
+      // ── BOTTOM SECTION: Three feature cards ──
+      const cards = [
+        {
+          icon: '⌨️',
+          eyebrow: '01 / TYPING',
+          title: 'Simulated\nTyping',
+          desc: 'Letter by letter, with\nnatural speed variations.\nCompletely undetectable.',
+          accent: true
+        },
+        {
+          icon: '🧠',
+          eyebrow: '02 / AI MODE',
+          title: 'Ultra-Human\nMode',
+          desc: 'Simulates typos and\nself-corrections to fool\nAI detection systems.',
+          accent: false
+        },
+        {
+          icon: '🕵️',
+          eyebrow: '03 / PRIVACY',
+          title: 'Incognito\nMode',
+          desc: 'Sensitive text is\nnever stored in history.\nZero local trace.',
+          accent: false
+        }
+      ];
+
+      const cardW = 340, cardH = 310, cardPad = 36;
+      const cardsStartX = (W - (cardW * 3 + cardPad * 2)) / 2;
+      const cardY = 330;
+
+      cards.forEach((card, i) => {
+        const cx = cardsStartX + i * (cardW + cardPad);
+        const cy = cardY;
+
+        // Card bg
+        ctx.save();
+        if (card.accent) {
+          ctx.shadowColor = 'rgba(99,102,241,0.4)';
+          ctx.shadowBlur = 30;
+        }
+        const cGrad = ctx.createLinearGradient(cx, cy, cx, cy + cardH);
+        cGrad.addColorStop(0, card.accent ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)');
+        cGrad.addColorStop(1, 'rgba(255,255,255,0.01)');
+        ctx.fillStyle = cGrad;
+        roundRect(ctx, cx, cy, cardW, cardH, 12);
+        ctx.fill();
+        ctx.restore();
+
+        // Card border
+        ctx.strokeStyle = card.accent ? 'rgba(99,102,241,0.5)' : 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 1;
+        roundRect(ctx, cx, cy, cardW, cardH, 12);
+        ctx.stroke();
+
+        // Corner brackets on card
+        if (card.accent) {
+          ctx.strokeStyle = 'rgba(99,102,241,0.8)';
+          ctx.lineWidth = 1.5;
+          const bs = 10;
+          ctx.beginPath(); ctx.moveTo(cx, cy+bs); ctx.lineTo(cx, cy); ctx.lineTo(cx+bs, cy); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(cx+cardW-bs, cy+cardH); ctx.lineTo(cx+cardW, cy+cardH); ctx.lineTo(cx+cardW, cy+cardH-bs); ctx.stroke();
+        }
+
+        // Eyebrow
+        ctx.fillStyle = card.accent ? 'rgba(129,140,248,0.9)' : 'rgba(111,111,128,0.8)';
+        ctx.font = '500 10px "JetBrains Mono"';
+        ctx.letterSpacing = '2px';
+        ctx.textAlign = 'left';
+        ctx.fillText(card.eyebrow, cx + 28, cy + 44);
+        ctx.letterSpacing = '0px';
+
+        // Icon
+        ctx.font = '36px serif';
+        ctx.fillText(card.icon, cx + 28, cy + 95);
+
+        // Title (multiline)
+        const titleLines = card.title.split('\n');
+        ctx.fillStyle = '#f5f5f7';
+        ctx.font = '400 34px "Fraunces"';
+        titleLines.forEach((line, li) => {
+          ctx.fillText(line, cx + 28, cy + 138 + li * 38);
+        });
+
+        // Separator line
+        const sepGrad = ctx.createLinearGradient(cx + 28, 0, cx + cardW - 28, 0);
+        sepGrad.addColorStop(0, card.accent ? 'rgba(99,102,241,0.5)' : 'rgba(255,255,255,0.08)');
+        sepGrad.addColorStop(1, 'transparent');
+        ctx.strokeStyle = sepGrad;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(cx + 28, cy + 220); ctx.lineTo(cx + cardW - 28, cy + 220); ctx.stroke();
+
+        // Desc (multiline)
+        const descLines = card.desc.split('\n');
+        ctx.fillStyle = 'rgba(180,180,196,0.75)';
+        ctx.font = '400 14px "Inter"';
+        descLines.forEach((line, li) => {
+          ctx.fillText(line, cx + 28, cy + 248 + li * 20);
+        });
+      });
+
+      // ── Bottom: shortcut + flags ──
+      // Shortcut badge
+      const badgeW = 250, badgeH = 36;
+      const badgeX = W/2 - badgeW/2, badgeY = H - 64;
+      ctx.fillStyle = 'rgba(255,255,255,0.04)';
+      roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 18);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 18);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.65)';
+      ctx.font = '500 12px "JetBrains Mono"';
+      ctx.textAlign = 'center';
+      ctx.fillText('⌘/Ctrl + Shift + V  ·  or click 🧩', W/2, badgeY + 23);
+
+      // Flags
+      const flags = ['🇬🇧','🇫🇷','🇪🇸','🇵🇹','🇮🇹','🇩🇪'];
+      const flagTotalW = flags.length * 24;
+      let flagX = W/2 - flagTotalW/2;
+      ctx.font = '16px serif';
+      flags.forEach(f => { ctx.fillText(f, flagX, H - 18); flagX += 24; });
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x+r, y); ctx.lineTo(x+w-r, y);
+      ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+      ctx.lineTo(x+w, y+h-r);
+      ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+      ctx.lineTo(x+r, y+h);
+      ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+      ctx.lineTo(x, y+r);
+      ctx.quadraticCurveTo(x, y, x+r, y);
+      ctx.closePath();
+    }
+
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'screenshot_1280x800.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    draw();
+  </script>
+</body>
+</html>

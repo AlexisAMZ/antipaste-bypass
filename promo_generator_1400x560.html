@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Promo 1400x560 Generator</title>
+  <style>
+    body { margin: 0; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; padding: 20px; font-family: sans-serif; }
+    .controls { margin-bottom: 16px; display: flex; gap: 12px; }
+    button { padding: 10px 20px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    button:hover { background: #818cf8; }
+    #scale-info { color: #888; font-size: 12px; margin-top: 8px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="controls">
+    <button onclick="download()">⬇️ Télécharger PNG (1400x560)</button>
+  </div>
+  <div id="scale-info">Canvas réel : 1400×560px — Affiché à 50%</div>
+
+  <canvas id="canvas" width="1400" height="560" style="width:700px; height:280px; border:1px solid #333;"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const W = 1400, H = 560;
+
+    function waitForFonts() {
+      return document.fonts.load('300 80px "Fraunces"')
+        .then(() => document.fonts.load('400px "Inter"'))
+        .then(() => document.fonts.load('500 14px "JetBrains Mono"'));
+    }
+
+    async function draw() {
+      await waitForFonts();
+
+      // ── Background ──
+      ctx.fillStyle = '#06060a';
+      ctx.fillRect(0, 0, W, H);
+
+      // ── Grid ──
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      const GRID = 56;
+      for (let x = 0; x < W; x += GRID) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += GRID) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+      // ── Right glow (violet) ──
+      const glowR = ctx.createRadialGradient(1100, 280, 0, 1100, 280, 420);
+      glowR.addColorStop(0, 'rgba(99,102,241,0.55)');
+      glowR.addColorStop(0.5, 'rgba(99,102,241,0.18)');
+      glowR.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowR;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── Left glow (subtle) ──
+      const glowL = ctx.createRadialGradient(200, 280, 0, 200, 280, 300);
+      glowL.addColorStop(0, 'rgba(99,102,241,0.12)');
+      glowL.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowL;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── Corner labels ──
+      ctx.font = '500 11px "JetBrains Mono"';
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.letterSpacing = '0.15em';
+      const corners = [
+        { text: '◻ SYS · ANTIPASTE · v26.7.21', x: 32, y: 32 },
+        { text: '◻ BYPASS ENGINE · ACTIVE', x: W - 32, y: 32, align: 'right' },
+        { text: '◻ SECURE · ANTI-AI · READY', x: 32, y: H - 24 },
+        { text: '◻ CHROME MV3 · 6 LANGS', x: W - 32, y: H - 24, align: 'right' },
+      ];
+      corners.forEach(c => {
+        ctx.textAlign = c.align || 'left';
+        ctx.fillText(c.text, c.x, c.y);
+      });
+      ctx.textAlign = 'left';
+      ctx.letterSpacing = '0px';
+
+      // ── Popup mockup card (left) ──
+      const cardX = 72, cardY = 110, cardW = 280, cardH = 340;
+      ctx.save();
+      ctx.shadowColor = 'rgba(99,102,241,0.3)';
+      ctx.shadowBlur = 40;
+      const cardGrad = ctx.createLinearGradient(cardX, cardY, cardX, cardY + cardH);
+      cardGrad.addColorStop(0, 'rgba(255,255,255,0.06)');
+      cardGrad.addColorStop(1, 'rgba(255,255,255,0.02)');
+      ctx.fillStyle = cardGrad;
+      roundRect(ctx, cardX, cardY, cardW, cardH, 14);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, cardX, cardY, cardW, cardH, 14);
+      ctx.stroke();
+      ctx.restore();
+
+      // Brackets on card
+      ctx.strokeStyle = 'rgba(99,102,241,0.7)';
+      ctx.lineWidth = 1.5;
+      const bSize = 12;
+      // TL
+      ctx.beginPath(); ctx.moveTo(cardX, cardY + bSize); ctx.lineTo(cardX, cardY); ctx.lineTo(cardX + bSize, cardY); ctx.stroke();
+      // BR
+      ctx.beginPath(); ctx.moveTo(cardX + cardW - bSize, cardY + cardH); ctx.lineTo(cardX + cardW, cardY + cardH); ctx.lineTo(cardX + cardW, cardY + cardH - bSize); ctx.stroke();
+
+      // Card header
+      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      roundRectTop(ctx, cardX, cardY, cardW, 52, 14);
+      ctx.fill();
+
+      // Logo in card
+      ctx.fillStyle = 'rgba(99,102,241,0.8)';
+      ctx.beginPath(); ctx.arc(cardX + 26, cardY + 26, 12, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'white';
+      ctx.font = '600 11px "Inter"';
+      ctx.fillText('AP', cardX + 19, cardY + 31);
+
+      // Extension name
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.font = '600 11px "Inter"';
+      ctx.fillText('Anti-Paste Bypass', cardX + 46, cardY + 22);
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '400 9px "Inter"';
+      ctx.fillText('Simulated typing active', cardX + 46, cardY + 36);
+
+      // Textarea mock
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      roundRect(ctx, cardX + 16, cardY + 68, cardW - 32, 70, 6);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(99,102,241,0.5)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, cardX + 16, cardY + 68, cardW - 32, 70, 6);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.font = '400 9px "JetBrains Mono"';
+      ctx.fillText('Mon mot de passe : Azerty123!', cardX + 24, cardY + 84);
+      // Typing cursor
+      ctx.fillStyle = 'rgba(99,102,241,0.9)';
+      ctx.fillRect(cardX + 24 + 178, cardY + 72, 1.5, 14);
+
+      // Settings rows mock
+      const rows = [
+        { label: 'Typing Speed', val: 'Normal' },
+        { label: 'Ultra-Human Mode', val: '●' },
+        { label: 'Incognito Mode', val: '○' },
+      ];
+      rows.forEach((r, i) => {
+        const ry = cardY + 160 + i * 40;
+        ctx.fillStyle = 'rgba(255,255,255,0.03)';
+        roundRect(ctx, cardX + 16, ry, cardW - 32, 30, 5);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+        ctx.lineWidth = 1;
+        roundRect(ctx, cardX + 16, ry, cardW - 32, 30, 5);
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.font = '500 9px "Inter"';
+        ctx.fillText(r.label, cardX + 26, ry + 19);
+        ctx.fillStyle = r.val === '●' ? '#53FC18' : 'rgba(255,255,255,0.4)';
+        ctx.font = '500 9px "JetBrains Mono"';
+        ctx.textAlign = 'right';
+        ctx.fillText(r.val, cardX + cardW - 26, ry + 19);
+        ctx.textAlign = 'left';
+      });
+
+      // ── Vertical divider ──
+      const divX = 420;
+      const divGrad = ctx.createLinearGradient(divX, 80, divX, H - 80);
+      divGrad.addColorStop(0, 'transparent');
+      divGrad.addColorStop(0.5, 'rgba(255,255,255,0.08)');
+      divGrad.addColorStop(1, 'transparent');
+      ctx.strokeStyle = divGrad;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(divX, 80); ctx.lineTo(divX, H - 80); ctx.stroke();
+
+      // ── RIGHT SIDE: Text content ──
+      const textX = 480;
+
+      // Eyebrow
+      ctx.fillStyle = 'rgba(129,140,248,0.85)';
+      ctx.font = '500 11px "JetBrains Mono"';
+      ctx.letterSpacing = '3px';
+      ctx.fillText('CHROME EXTENSION', textX, 140);
+      ctx.letterSpacing = '0px';
+
+      // Main title
+      ctx.fillStyle = '#f5f5f7';
+      ctx.font = '300 86px "Fraunces"';
+      ctx.fillText('Anti-Paste', textX, 230);
+
+      // Italic accent word
+      ctx.save();
+      const grad = ctx.createLinearGradient(textX, 0, textX + 500, 0);
+      grad.addColorStop(0, '#818cf8');
+      grad.addColorStop(1, '#6366f1');
+      ctx.fillStyle = grad;
+      ctx.font = 'italic 300 86px "Fraunces"';
+      ctx.fillText('Bypass', textX, 320);
+      ctx.restore();
+
+      // Tagline
+      ctx.fillStyle = 'rgba(180,180,196,0.85)';
+      ctx.font = '400 20px "Inter"';
+      ctx.fillText('Stop retyping. Paste anywhere.', textX, 368);
+
+      // Shortcut badge
+      const badgeX = textX, badgeY = 390, badgeW = 210, badgeH = 38;
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 20);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 20);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      ctx.font = '500 13px "JetBrains Mono"';
+      ctx.textAlign = 'center';
+      ctx.fillText('⌘/Ctrl + Shift + V', badgeX + badgeW / 2, badgeY + 24);
+      ctx.textAlign = 'left';
+
+      // Feature pills
+      const features = [
+        { icon: '⌨️', label: 'Simulated Typing' },
+        { icon: '🧠', label: 'Ultra-Human Mode' },
+        { icon: '🕵️', label: 'Incognito Mode' },
+      ];
+      let fx = textX;
+      features.forEach(f => {
+        const fw = ctx.measureText(`${f.icon}  ${f.label}`).width + 28;
+        ctx.fillStyle = 'rgba(99,102,241,0.1)';
+        roundRect(ctx, fx, 448, fw, 34, 8);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(99,102,241,0.25)';
+        ctx.lineWidth = 1;
+        roundRect(ctx, fx, 448, fw, 34, 8);
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.75)';
+        ctx.font = '500 12px "Inter"';
+        ctx.fillText(`${f.icon}  ${f.label}`, fx + 12, 470);
+        fx += fw + 10;
+      });
+
+      // Flags
+      const flags = ['🇬🇧', '🇫🇷', '🇪🇸', '🇵🇹', '🇮🇹', '🇩🇪'];
+      ctx.font = '16px serif';
+      let flagX = textX;
+      flags.forEach(flag => {
+        ctx.fillText(flag, flagX, 524);
+        flagX += 28;
+      });
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function roundRectTop(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h);
+      ctx.lineTo(x, y + h);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'promo_1400x560.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    draw();
+  </script>
+</body>
+</html>
