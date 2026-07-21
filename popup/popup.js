@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Indicateur de sauvegarde
   let saveTimeout;
   const showSavedIndicator = () => {
-    statusMessage.classList.remove('opacity-0');
-    statusMessage.classList.add('opacity-100');
+    statusMessage.classList.remove('hidden');
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
-      statusMessage.classList.remove('opacity-100');
-      statusMessage.classList.add('opacity-0');
+      statusMessage.classList.add('hidden');
     }, 2000);
   };
 
@@ -27,13 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderHistory = (history) => {
     historyList.innerHTML = '';
     if (!history || history.length === 0) {
-      historyList.innerHTML = `<div class="list-group-item text-muted text-center py-2" data-i18n="historyEmpty">${chrome.i18n.getMessage("historyEmpty") || "Aucun historique"}</div>`;
+      historyList.innerHTML = `<div class="history-empty" data-i18n="historyEmpty">${chrome.i18n.getMessage("historyEmpty") || "Aucun historique"}</div>`;
       return;
     }
 
     history.forEach((item) => {
       const div = document.createElement('div');
-      div.className = 'list-group-item list-group-item-action history-item';
+      div.className = 'history-item';
       div.textContent = item;
       div.title = item; // Tooltip avec le texte complet
       div.addEventListener('click', () => {
@@ -44,8 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // 3. Charger les données
-  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode', 'savedText', 'pasteHistory'], (result) => {
+  // 3. Charger les données (Langue incluse)
+  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode', 'savedText', 'pasteHistory', 'userLang'], (result) => {
+    if (result.userLang) {
+      document.getElementById('lang-selector').value = result.userLang;
+      localizeHTML(result.userLang);
+    } else {
+      // Détecter la langue du navigateur par défaut
+      const browserLang = chrome.i18n.getUILanguage().split('-')[0];
+      const supportedLangs = ['en', 'fr', 'es', 'pt', 'it', 'de'];
+      const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+      document.getElementById('lang-selector').value = defaultLang;
+      localizeHTML(defaultLang);
+    }
+    
     if (result.typingSpeed !== undefined) {
       speedSelect.value = result.typingSpeed;
     }
@@ -69,6 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   antiAiToggle.addEventListener('change', (e) => {
     chrome.storage.local.set({ antiAiMode: e.target.checked }, showSavedIndicator);
+  });
+  
+  // Sélecteur de langue
+  document.getElementById('lang-selector').addEventListener('change', (e) => {
+    const lang = e.target.value;
+    chrome.storage.local.set({ userLang: lang }, () => {
+      localizeHTML(lang);
+    });
   });
 
   incognitoToggle.addEventListener('change', (e) => {
@@ -107,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         chrome.storage.local.set({ pasteHistory: history });
         renderHistory(history);
-      });
-    }
+    });
   });
 
   clearHistoryBtn.addEventListener('click', () => {
@@ -118,20 +135,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function localizeHTML() {
+async function localizeHTML(lang) {
+  let messages = {};
+  try {
+    const response = await fetch(`../_locales/${lang}/messages.json`);
+    messages = await response.json();
+  } catch (err) {
+    console.error("Erreur chargement langue:", err);
+    return;
+  }
+
   document.querySelectorAll('[data-i18n]').forEach((element) => {
-    const msg = chrome.i18n.getMessage(element.getAttribute('data-i18n'));
-    if (msg) {
-      element.textContent = msg;
+    const key = element.getAttribute('data-i18n');
+    if (messages[key] && messages[key].message) {
+      element.textContent = messages[key].message;
     }
   });
   
   document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
-    const msg = chrome.i18n.getMessage(element.getAttribute('data-i18n-placeholder'));
-    if (msg) {
-      element.setAttribute('placeholder', msg);
+    const key = element.getAttribute('data-i18n-placeholder');
+    if (messages[key] && messages[key].message) {
+      element.setAttribute('placeholder', messages[key].message);
     }
   });
 
-  document.title = chrome.i18n.getMessage("extensionName") || "Anti-Paste Bypass";
+  if (messages["extensionName"]) {
+    document.title = messages["extensionName"].message;
+  }
 }

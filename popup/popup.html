@@ -1,82 +1,112 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <title data-i18n="extensionName">Anti-Paste Bypass</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="popup.css">
 </head>
-<body class="dark-theme">
-  <div class="container p-3" style="width: 380px;">
-    
+<body>
+  
+  <div class="app-container">
     <!-- Header -->
-    <header class="d-flex align-items-center mb-4">
-      <img src="../icons/icon-48.png" alt="Logo" class="me-3 rounded shadow-sm" width="40" height="40" style="background: white; padding: 2px;">
-      <div>
-        <h5 class="mb-0 fw-bold" data-i18n="extensionName" style="background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Anti-Paste Bypass</h5>
-        <small class="text-muted" data-i18n="popupSubtitle">Contournement intelligent</small>
+    <header class="app-header">
+      <div class="header-brand">
+        <img src="../icons/icon-48.png" alt="Logo" class="brand-logo">
+        <div class="brand-text">
+          <h1 class="brand-title" data-i18n="extensionName">Anti-Paste Bypass</h1>
+          <p class="brand-subtitle" data-i18n="popupSubtitle">Contournement intelligent</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <select id="lang-selector" class="lang-select">
+          <option value="en">🇬🇧 EN</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="pt">🇵🇹 PT</option>
+          <option value="it">🇮🇹 IT</option>
+          <option value="de">🇩🇪 DE</option>
+        </select>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main>
-      <!-- Text Area Card -->
-      <div class="card shadow-sm border-0 mb-3">
-        <div class="card-body p-3">
-          <label for="saved-text" class="form-label fw-bold" data-i18n="textLabel">Texte à coller</label>
-          <textarea id="saved-text" class="form-control" rows="4" data-i18n-placeholder="textPlaceholder" placeholder="Collez votre texte ici en premier..."></textarea>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <small id="status-message" class="text-success fw-bold opacity-0 transition-opacity">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1"><path d="M20 6 9 17l-5-5"/></svg>
-              Sauvegardé
-            </small>
-          </div>
+    <main class="app-main">
+      
+      <!-- Paste Area Section -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title" data-i18n="textLabel">Texte à coller</h2>
+          <span id="status-message" class="status-indicator hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Sauvegardé
+          </span>
         </div>
-      </div>
+        <div class="panel-body">
+          <textarea id="saved-text" class="paste-textarea" rows="4" data-i18n-placeholder="textPlaceholder" placeholder="Collez votre texte ici en premier..."></textarea>
+        </div>
+      </section>
 
-      <!-- Settings Card -->
-      <div class="card shadow-sm border-0 mb-3">
-        <div class="card-body p-3">
-          <!-- Speed -->
-          <div class="mb-3">
-            <label for="speed-select" class="form-label fw-bold d-flex justify-content-between">
-              <span data-i18n="speedLabel">Vitesse de frappe</span>
-            </label>
-            <select id="speed-select" class="form-select form-select-sm">
+      <!-- Settings Section -->
+      <section class="panel">
+        <div class="panel-body settings-grid">
+          
+          <!-- Speed Setting -->
+          <div class="setting-row">
+            <label for="speed-select" class="setting-label" data-i18n="speedLabel">Vitesse de frappe</label>
+            <select id="speed-select" class="custom-select">
               <option value="50" data-i18n="speedSlow">Lente (50ms)</option>
               <option value="15" selected data-i18n="speedNormal">Normale (15ms)</option>
               <option value="5" data-i18n="speedFast">Rapide (5ms)</option>
               <option value="0" data-i18n="speedInstant">Instantanée (0ms)</option>
             </select>
           </div>
-          <!-- Anti-AI Toggle -->
-          <div class="form-check form-switch mb-3 d-flex align-items-center">
-            <input class="form-check-input mt-0 me-2" type="checkbox" role="switch" id="anti-ai-toggle">
-            <label class="form-check-label small fw-semibold text-danger" for="anti-ai-toggle" data-i18n="antiAILabel" style="cursor: pointer;">Mode Ultra-Humain (Fautes & Corrections)</label>
-          </div>
-          <!-- Incognito Toggle -->
-          <div class="form-check form-switch mb-0 d-flex align-items-center">
-            <input class="form-check-input mt-0 me-2" type="checkbox" role="switch" id="incognito-toggle">
-            <label class="form-check-label small fw-semibold text-secondary" for="incognito-toggle" data-i18n="incognitoLabel" style="cursor: pointer;">Mode Incognito (Ne pas sauvegarder l'historique)</label>
-          </div>
-        </div>
-      </div>
-      
-      <!-- History Card -->
-      <div class="card shadow-sm border-0 mb-3">
-        <div class="card-body p-3">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <label class="form-label fw-bold mb-0 text-white" data-i18n="historyTitle">Historique Récent</label>
-            <button id="clear-history" class="btn btn-outline-danger btn-sm py-0" data-i18n="clearHistory">Effacer</button>
-          </div>
-          <div id="history-list" class="list-group list-group-flush rounded" style="background: rgba(0,0,0,0.2);">
-            <div class="list-group-item text-muted text-center py-2" data-i18n="historyEmpty">Aucun historique</div>
-          </div>
-        </div>
-      </div>
-    </main>
 
+          <div class="divider"></div>
+
+          <!-- Anti-AI Toggle -->
+          <label class="setting-row toggle-row" for="anti-ai-toggle">
+            <div class="setting-info">
+              <span class="setting-label danger-text" data-i18n="antiAILabel">Mode Ultra-Humain (Fautes & Corrections)</span>
+            </div>
+            <div class="toggle-switch danger-toggle">
+              <input type="checkbox" id="anti-ai-toggle" class="toggle-input">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+
+          <div class="divider"></div>
+
+          <!-- Incognito Toggle -->
+          <label class="setting-row toggle-row" for="incognito-toggle">
+            <div class="setting-info">
+              <span class="setting-label stealth-text" data-i18n="incognitoLabel">Mode Incognito (Ne pas sauvegarder l'historique)</span>
+            </div>
+            <div class="toggle-switch stealth-toggle">
+              <input type="checkbox" id="incognito-toggle" class="toggle-input">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+
+        </div>
+      </section>
+      
+      <!-- History Section -->
+      <section class="panel history-panel">
+        <div class="panel-header">
+          <h2 class="panel-title" data-i18n="historyTitle">Historique Récent</h2>
+          <button id="clear-history" class="btn-clear" data-i18n="clearHistory">Effacer</button>
+        </div>
+        <div class="panel-body p-0">
+          <div id="history-list" class="history-list">
+            <div class="history-empty" data-i18n="historyEmpty">Aucun historique</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
+  
   <script src="popup.js"></script>
 </body>
 </html>
