@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 async function localizeHTML(lang) {
   let messages = {};
   try {
-    const response = await fetch(`../_locales/${lang}/messages.json`);
+    const url = chrome.runtime.getURL(`_locales/${lang}/messages.json`);
+    const response = await fetch(url);
     messages = await response.json();
   } catch (err) {
     console.error("Erreur chargement langue:", err);
