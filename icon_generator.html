@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Generator</title>
+  <style>
+    body { background: #1a1a1a; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px; }
+    .row { display: flex; gap: 20px; align-items: flex-end; }
+    .col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    canvas { border: 1px solid #333; background: transparent; }
+    button { padding: 8px 16px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    button:hover { background: #818cf8; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h2>Générateur d'Icônes (Style StreamPulse)</h2>
+  
+  <div class="row">
+    <div class="col">
+      <canvas id="icon128" width="128" height="128"></canvas>
+      <button onclick="download('icon128', 128)">⬇️ 128x128</button>
+    </div>
+    <div class="col">
+      <canvas id="icon48" width="48" height="48"></canvas>
+      <button onclick="download('icon48', 48)">⬇️ 48x48</button>
+    </div>
+    <div class="col">
+      <canvas id="icon32" width="32" height="32"></canvas>
+      <button onclick="download('icon32', 32)">⬇️ 32x32</button>
+    </div>
+    <div class="col">
+      <canvas id="icon16" width="16" height="16"></canvas>
+      <button onclick="download('icon16', 16)">⬇️ 16x16</button>
+    </div>
+  </div>
+
+  <script>
+    async function drawIcon(canvasId, size) {
+      await document.fonts.ready;
+      
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const W = size, H = size;
+      
+      ctx.clearRect(0, 0, W, H);
+
+      // Fond avec coins arrondis
+      const radius = size * 0.22;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(W - radius, 0);
+      ctx.quadraticCurveTo(W, 0, W, radius);
+      ctx.lineTo(W, H - radius);
+      ctx.quadraticCurveTo(W, H, W - radius, H);
+      ctx.lineTo(radius, H);
+      ctx.quadraticCurveTo(0, H, 0, H - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      
+      // Dégradé de fond (très sombre à violet profond)
+      const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+      bgGrad.addColorStop(0, '#1f1f2e');
+      bgGrad.addColorStop(1, '#0b0b14');
+      ctx.fillStyle = bgGrad;
+      ctx.fill();
+
+      // Halo central pour faire ressortir le texte
+      const glow = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W/1.5);
+      glow.addColorStop(0, 'rgba(99,102,241,0.5)');
+      glow.addColorStop(1, 'transparent');
+      ctx.fillStyle = glow;
+      ctx.fill();
+      
+      // Bordure subtile violette (style glassmorphism)
+      ctx.lineWidth = Math.max(1, size * 0.02);
+      const borderGrad = ctx.createLinearGradient(0, 0, W, H);
+      borderGrad.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
+      borderGrad.addColorStop(1, 'rgba(99, 102, 241, 0.2)');
+      ctx.strokeStyle = borderGrad;
+      ctx.stroke();
+
+      // Texte "AP" ou icône clavier 
+      // Pour être cohérent avec le style éditorial, un "A" serif ou "AP" en Fraunces
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      // On ajuste la police en fonction de la taille
+      const fontSize = size * 0.55;
+      ctx.font = `600 ${fontSize}px "Fraunces"`;
+      
+      // Ombre sur le texte
+      ctx.shadowColor = 'rgba(99,102,241, 0.8)';
+      ctx.shadowBlur = size * 0.1;
+      
+      // Le P est légèrement décalé/entrelacé visuellement si on utilise AP
+      ctx.fillText('A', W/2 - size*0.15, H/2 + size*0.05);
+      
+      // Couleur différente pour le P (violet)
+      ctx.fillStyle = '#818cf8';
+      ctx.fillText('P', W/2 + size*0.15, H/2 + size*0.05);
+      
+      ctx.shadowBlur = 0; // reset
+    }
+
+    function download(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = `icon-${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    async function init() {
+      await document.fonts.ready;
+      drawIcon('icon128', 128);
+      drawIcon('icon48', 48);
+      drawIcon('icon32', 32);
+      drawIcon('icon16', 16);
+    }
+    
+    init();
+  </script>
+</body>
+</html>

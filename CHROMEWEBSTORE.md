@@ -32,14 +32,13 @@ HOW IT WORKS
 
 ✦ Copy your text as usual (Cmd+C / Ctrl+C)
 ✦ Click in any blocked field
-✦ Hit the 🧩 button that appears, or use the keyboard shortcut
+✦ Use the keyboard shortcut or right-click context menu
 ✦ Anti-Paste Bypass types the text for you, naturally
 
 FEATURES
 
 ⏱️ Time Saver: Stop wasting minutes retyping what you already have. Anti-Paste Bypass does it in seconds.
 
-🧩 Magic Button: A subtle button appears automatically in any text field you focus. One click. Done.
 
 ⌨️ Human Simulation: Text is entered letter by letter with natural speed variations. Completely undetectable.
 
@@ -92,14 +91,13 @@ COMMENT ÇA MARCHE
 
 ✦ Copiez votre texte normalement (Cmd+C / Ctrl+C)
 ✦ Cliquez dans n'importe quel champ bloqué
-✦ Cliquez sur le bouton 🧩 qui apparaît, ou utilisez le raccourci clavier
+✦ Utilisez le raccourci clavier ou le menu clic droit
 ✦ Anti-Paste Bypass tape le texte à votre place, naturellement
 
 FONCTIONNALITÉS
 
 ⏱️ Gain de Temps: Arrêtez de perdre des minutes à retaper ce que vous avez déjà. Anti-Paste Bypass le fait en secondes.
 
-🧩 Bouton Magique: Un bouton discret apparaît automatiquement dans chaque champ de texte. Un clic. C'est fait.
 
 ⌨️ Simulation Humaine: Frappe lettre par lettre avec des variations de vitesse naturelles. Complètement indétectable.
 
@@ -147,7 +145,6 @@ Anti-Paste Bypass te devuelve ese tiempo. En lugar de forzar el pegado, simula e
 CARACTERÍSTICAS
 
 ⏱️ Ahorro de Tiempo: Deja de perder minutos reescribiendo lo que ya tienes.
-🧩 Botón Mágico: Aparece automáticamente en cada campo de texto.
 ⌨️ Simulación Humana: Escritura letra por letra, completamente indetectable.
 🧠 Modo Ultra-Humano: Errores tipográficos realistas para un perfil más humano.
 ⚡ Velocidad Ajustable: Lenta, Normal, Rápida o Instantánea.
@@ -179,7 +176,6 @@ Anti-Paste Bypass te devolve esse tempo. Em vez de forçar a colagem, simula dig
 RECURSOS
 
 ⏱️ Economia de Tempo: Pare de perder minutos redigitando o que você já tem.
-🧩 Botão Mágico: Aparece automaticamente em cada campo de texto.
 ⌨️ Simulação Humana: Digitação letra por letra, completamente indetectável.
 🧠 Modo Ultra-Humano: Erros de digitação realistas para um perfil mais humano.
 ⚡ Velocidade Ajustável: Lenta, Normal, Rápida ou Instantânea.
@@ -211,7 +207,6 @@ Anti-Paste Bypass ti ridà quel tempo. Invece di forzare l'incollaggio, simula u
 FUNZIONALITÀ
 
 ⏱️ Risparmio di Tempo: Smetti di perdere minuti riscrivendo ciò che hai già.
-🧩 Pulsante Magico: Appare automaticamente in ogni campo di testo.
 ⌨️ Simulazione Umana: Digitazione lettera per lettera, completamente impercettibile.
 🧠 Modalità Ultra-Umana: Errori di battitura realistici per un profilo più umano.
 ⚡ Velocità Regolabile: Lenta, Normale, Veloce o Istantanea.
@@ -243,7 +238,6 @@ Anti-Paste Bypass gibt dir diese Zeit zurück. Statt das Einfügen zu erzwingen,
 FUNKTIONEN
 
 ⏱️ Zeitersparnis: Hör auf, Minuten damit zu verschwenden, Dinge abzutippen, die du bereits hast.
-🧩 Magische Schaltfläche: Erscheint automatisch in jedem Textfeld.
 ⌨️ Menschliche Simulation: Buchstabe für Buchstabe, vollständig unerkennbar.
 🧠 Ultra-Mensch-Modus: Realistische Tippfehler für ein noch menschlicheres Profil.
 ⚡ Einstellbare Geschwindigkeit: Langsam, Normal, Schnell oder Sofort.
@@ -276,11 +270,6 @@ FUNKTIONEN
 
 ---
 
-## 🌍 Justification de l'autorisation d'accès à l'hôte (Host Permission)
-*(À copier-coller dans la case "Autorisation d'accès à l'hôte" / "Host permissions justification" sur le Chrome Web Store)*
-
-**Pourquoi demandez-vous l'accès à `<all_urls>` ?**
-"This extension requires the `<all_urls>` host permission in its content scripts because it is designed to bypass paste restrictions on any website the user visits. The core feature—injecting a subtle UI button and simulating keyboard typing events directly into input fields—must be universally available across the web, as paste blocks can occur on any domain (e.g., exam platforms, banking sites, internal company tools). The script only activates and interacts with the page when the user explicitly triggers it via the UI or context menu."
 ## 🎯 Objectif Unique (Single Purpose Description)
 *(À renseigner dans la section "Description de l'objectif de l'extension" du Developer Dashboard)*
 

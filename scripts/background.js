@@ -94,28 +94,6 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
   }
 });
 
-// --- COMMUNICATION AVEC CONTENT SCRIPT (Bouton flottant) ---
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  if (msg.type === 'get-paste-data') {
-    (async () => {
-      try {
-        const clipboardText = await getClipboardFromOffscreen();
-        const { typingSpeed = 10, antiAiMode = false, incognitoMode = false } = await chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode']);
-        
-        sendResponse({
-          text: clipboardText || "",
-          speed: parseInt(typingSpeed, 10),
-          antiAiMode: antiAiMode
-        });
-      } catch (err) {
-        console.error("Erreur get-paste-data :", err);
-        sendResponse({ text: null });
-      }
-    })();
-    return true; // Keep channel open
-  }
-});
-
 // --- GESTION OFFSCREEN (Lecture du presse-papiers) ---
 let creating; // Promise globale pour éviter de créer le document plusieurs fois en même temps
 async function setupOffscreenDocument() {
