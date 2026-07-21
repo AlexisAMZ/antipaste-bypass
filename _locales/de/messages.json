@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass"
+  },
+  "extensionDescription": {
+    "message": "Umgehen Sie Kopier- und Einfügebeschränkungen, indem Sie Tastatureingaben simulieren. Klicken Sie mit der rechten Maustaste zum Einfügen."
+  },
+  "popupTitle": {
+    "message": "Anti-Paste Bypass Einstellungen"
+  },
+  "popupSubtitle": {
+    "message": "Intelligenter Zwischenablage-Bypass"
+  },
+  "speedLabel": {
+    "message": "Tippgeschwindigkeit"
+  },
+  "speedSlow": {
+    "message": "Langsam (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normal (15ms)"
+  },
+  "speedFast": {
+    "message": "Schnell (5ms)"
+  },
+  "speedInstant": {
+    "message": "Sofortig (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "Wie funktioniert es?"
+  },
+  "instruction1": {
+    "message": "Kopieren Sie Ihren Text (Strg+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Klicken Sie mit der rechten Maustaste auf das blockierte Feld auf der Webseite."
+  },
+  "instruction3": {
+    "message": "Wählen Sie \"Einfügen mit Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "Die Erweiterung tippt den Text für Sie."
+  },
+  "contextMenuTitle": {
+    "message": "Einfügen mit Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Text zum Einfügen"
+  },
+  "textPlaceholder": {
+    "message": "Fügen Sie Ihren Text zuerst hier ein..."
+  },
+  "textEmptyAlert": {
+    "message": "Text ist leer! Bitte klicken Sie auf die Erweiterung, um Ihren Text zuerst einzufügen."
+  },
+  "onboardingTitle": {
+    "message": "Willkommen!"
+  },
+  "onboardingButton": {
+    "message": "Verstanden"
+  },
+  "historyTitle": {
+    "message": "Letzter Verlauf"
+  },
+  "historyEmpty": {
+    "message": "Kein Verlauf"
+  },
+  "clearHistory": {
+    "message": "Löschen"
+  },
+  "step1Title": {
+    "message": "Erweiterung anheften"
+  },
+  "step1Desc": {
+    "message": "Klicken Sie oben rechts in Chrome auf das 🧩 Puzzle-Symbol und dann auf die Stecknadel 📌, um einfach darauf zuzugreifen."
+  },
+  "step2Title": {
+    "message": "Bereiten Sie Ihren Text vor"
+  },
+  "step2Desc": {
+    "message": "Öffnen Sie die Erweiterung und fügen Sie Ihren Text in das Textfeld ein."
+  },
+  "step3Title": {
+    "message": "Umgehen Sie die Sperre"
+  },
+  "step3Desc": {
+    "message": "Auf der blockierten Seite: Rechtsklick -> Einfügen mit Anti-Paste Bypass."
+  }
+}

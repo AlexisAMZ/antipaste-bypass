@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass"
+  },
+  "extensionDescription": {
+    "message": "Contourne les restrictions de copier-coller en simulant la frappe au clavier. Utilisez le clic droit pour coller."
+  },
+  "popupTitle": {
+    "message": "Réglages Anti-Paste Bypass"
+  },
+  "popupSubtitle": {
+    "message": "Contournement intelligent"
+  },
+  "speedLabel": {
+    "message": "Vitesse de frappe"
+  },
+  "speedSlow": {
+    "message": "Lente (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normale (15ms)"
+  },
+  "speedFast": {
+    "message": "Rapide (5ms)"
+  },
+  "speedInstant": {
+    "message": "Instantanée (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "Comment ça marche ?"
+  },
+  "instruction1": {
+    "message": "Copiez votre texte (Ctrl+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Faites un clic droit sur le champ bloqué dans la page web."
+  },
+  "instruction3": {
+    "message": "Sélectionnez \"Coller avec Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "L'extension écrira le texte à votre place."
+  },
+  "contextMenuTitle": {
+    "message": "Coller avec Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Texte à coller"
+  },
+  "textPlaceholder": {
+    "message": "Collez votre texte ici en premier..."
+  },
+  "textEmptyAlert": {
+    "message": "Le texte est vide ! Veuillez d'abord cliquer sur l'extension pour y coller votre texte."
+  },
+  "onboardingTitle": {
+    "message": "Bienvenue !"
+  },
+  "onboardingButton": {
+    "message": "J'ai compris"
+  },
+  "historyTitle": {
+    "message": "Historique Récent"
+  },
+  "historyEmpty": {
+    "message": "Aucun historique"
+  },
+  "clearHistory": {
+    "message": "Effacer"
+  },
+  "step1Title": {
+    "message": "Épinglez l'extension"
+  },
+  "step1Desc": {
+    "message": "Cliquez sur l'icône 🧩 Puzzle en haut à droite de Chrome et cliquez sur l'épingle 📌 pour y accéder facilement."
+  },
+  "step2Title": {
+    "message": "Préparez votre texte"
+  },
+  "step2Desc": {
+    "message": "Ouvrez l'extension et collez votre texte dans la zone dédiée."
+  },
+  "step3Title": {
+    "message": "Contournez le blocage"
+  },
+  "step3Desc": {
+    "message": "Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste Bypass."
+  }
+}

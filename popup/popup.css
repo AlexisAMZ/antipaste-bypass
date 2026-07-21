@@ -1,0 +1,27 @@
+/* Surcharges Bootstrap minimales pour le Popup */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+textarea {
+  resize: none;
+  font-family: monospace;
+}
+
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 1; }
+.transition-opacity { transition: opacity 0.3s ease; }
+
+.history-item {
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+
+.history-item:hover {
+  background-color: #f8f9fa;
+  color: #2c3e50; /* Primary Flatly color */
+}

@@ -1,0 +1,91 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Bypass copy-paste restrictions by simulating keyboard typing. Right-click to paste.",
+    "description": "Description of the extension"
+  },
+  "popupTitle": {
+    "message": "Anti-Paste Bypass Settings"
+  },
+  "popupSubtitle": {
+    "message": "Smart Clipboard Bypass"
+  },
+  "speedLabel": {
+    "message": "Typing Speed"
+  },
+  "speedSlow": {
+    "message": "Slow (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normal (15ms)"
+  },
+  "speedFast": {
+    "message": "Fast (5ms)"
+  },
+  "speedInstant": {
+    "message": "Instant (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "How does it work?"
+  },
+  "instruction1": {
+    "message": "Copy your text (Ctrl+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Right-click on the blocked field in the web page."
+  },
+  "instruction3": {
+    "message": "Select \"Paste with Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "The extension will type the text for you."
+  },
+  "contextMenuTitle": {
+    "message": "Paste with Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Text to paste"
+  },
+  "textPlaceholder": {
+    "message": "Paste your text here first..."
+  },
+  "textEmptyAlert": {
+    "message": "Text is empty! Please click the extension icon to paste your text first."
+  },
+  "onboardingTitle": {
+    "message": "Welcome!"
+  },
+  "onboardingButton": {
+    "message": "Got it"
+  },
+  "historyTitle": {
+    "message": "Recent History"
+  },
+  "historyEmpty": {
+    "message": "No history yet"
+  },
+  "clearHistory": {
+    "message": "Clear"
+  },
+  "step1Title": {
+    "message": "Pin the extension"
+  },
+  "step1Desc": {
+    "message": "Click on the 🧩 Puzzle icon at the top right of Chrome and click the 📌 pin to access it easily."
+  },
+  "step2Title": {
+    "message": "Prepare your text"
+  },
+  "step2Desc": {
+    "message": "Open the extension and paste your text in the text area."
+  },
+  "step3Title": {
+    "message": "Bypass the block"
+  },
+  "step3Desc": {
+    "message": "On the blocked site, Right-Click -> Paste with Anti-Paste Bypass."
+  }
+}

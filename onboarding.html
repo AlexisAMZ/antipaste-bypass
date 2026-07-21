@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenue - Anti-Paste Bypass</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body class="bg-light">
+
+  <div class="container min-vh-100 d-flex justify-content-center align-items-center py-5">
+    
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="max-width: 800px; width: 100%;">
+      <div class="row g-0">
+        
+        <!-- Left Side (Hero) -->
+        <div class="col-md-5 bg-primary text-white d-flex flex-column justify-content-center align-items-center p-5 text-center hero-bg">
+          <img src="icons/icon-128.png" alt="Logo" class="rounded-4 shadow mb-4" width="96" height="96">
+          <h2 class="fw-bold mb-2" data-i18n="extensionName">Anti-Paste Bypass</h2>
+          <p class="opacity-75" data-i18n="popupSubtitle">Contournement intelligent du presse-papiers</p>
+        </div>
+        
+        <!-- Right Side (Steps) -->
+        <div class="col-md-7 p-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0 text-dark" data-i18n="onboardingTitle">Bienvenue !</h3>
+            <select id="lang-selector" class="form-select form-select-sm shadow-sm border-0 bg-light" style="width: auto; cursor: pointer;">
+              <option value="fr">🇫🇷 FR</option>
+              <option value="en">🇬🇧 EN</option>
+              <option value="es">🇪🇸 ES</option>
+              <option value="pt">🇵🇹 PT</option>
+              <option value="it">🇮🇹 IT</option>
+              <option value="de">🇩🇪 DE</option>
+            </select>
+          </div>
+          
+          <div class="d-flex flex-column gap-4 mb-5">
+            <!-- Step 1 -->
+            <div class="d-flex align-items-start">
+              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">1</div>
+              <div>
+                <h6 class="fw-bold mb-1" data-i18n="step1Title">Épinglez l'extension</h6>
+                <p class="text-muted mb-0 small" data-i18n="step1Desc">Cliquez sur l'icône <span class="badge bg-secondary">🧩 Puzzle</span> en haut à droite de Chrome et cliquez sur l'épingle 📌 pour y accéder facilement.</p>
+              </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="d-flex align-items-start">
+              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">2</div>
+              <div>
+                <h6 class="fw-bold mb-1" data-i18n="step2Title">Préparez votre texte</h6>
+                <p class="text-muted mb-0 small" data-i18n="step2Desc">Ouvrez l'extension et collez votre texte dans la zone dédiée.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="d-flex align-items-start">
+              <div class="step-number bg-primary text-white rounded-circle d-flex justify-content-center align-items-center shadow-sm me-3 flex-shrink-0">3</div>
+              <div>
+                <h6 class="fw-bold mb-1" data-i18n="step3Title">Contournez le blocage</h6>
+                <p class="text-muted mb-0 small" data-i18n="step3Desc">Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste Bypass.</p>
+              </div>
+            </div>
+          </div>
+          
+          <button id="start-btn" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm" data-i18n="onboardingButton">C'est parti !</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <script src="onboarding.js"></script>
+</body>
+</html>

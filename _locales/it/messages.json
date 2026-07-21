@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass"
+  },
+  "extensionDescription": {
+    "message": "Aggira le restrizioni di copia-incolla simulando la digitazione della tastiera. Fai clic con il tasto destro per incollare."
+  },
+  "popupTitle": {
+    "message": "Impostazioni Anti-Paste Bypass"
+  },
+  "popupSubtitle": {
+    "message": "Bypass Appunti Intelligente"
+  },
+  "speedLabel": {
+    "message": "Velocità di digitazione"
+  },
+  "speedSlow": {
+    "message": "Lenta (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normale (15ms)"
+  },
+  "speedFast": {
+    "message": "Veloce (5ms)"
+  },
+  "speedInstant": {
+    "message": "Istantanea (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "Come funziona?"
+  },
+  "instruction1": {
+    "message": "Copia il tuo testo (Ctrl+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Fai clic con il tasto destro sul campo bloccato nella pagina web."
+  },
+  "instruction3": {
+    "message": "Seleziona \"Incolla con Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "L'estensione digiterà il testo per te."
+  },
+  "contextMenuTitle": {
+    "message": "Incolla con Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Testo da incollare"
+  },
+  "textPlaceholder": {
+    "message": "Incolla qui il tuo testo per primo..."
+  },
+  "textEmptyAlert": {
+    "message": "Il testo è vuoto! Fai clic sull'estensione per incollare prima il testo."
+  },
+  "onboardingTitle": {
+    "message": "Benvenuto!"
+  },
+  "onboardingButton": {
+    "message": "Ho capito"
+  },
+  "historyTitle": {
+    "message": "Cronologia Recente"
+  },
+  "historyEmpty": {
+    "message": "Nessuna cronologia"
+  },
+  "clearHistory": {
+    "message": "Cancella"
+  },
+  "step1Title": {
+    "message": "Aggiungi l'estensione"
+  },
+  "step1Desc": {
+    "message": "Fai clic sull'icona 🧩 Puzzle in alto a destra su Chrome e fai clic sulla puntina 📌 per accedervi facilmente."
+  },
+  "step2Title": {
+    "message": "Prepara il tuo testo"
+  },
+  "step2Desc": {
+    "message": "Apri l'estensione e incolla il tuo testo nell'area di testo."
+  },
+  "step3Title": {
+    "message": "Bypassa il blocco"
+  },
+  "step3Desc": {
+    "message": "Sul sito bloccato, fai clic destro -> Incolla con Anti-Paste Bypass."
+  }
+}

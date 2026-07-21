@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass"
+  },
+  "extensionDescription": {
+    "message": "Burlare as restrições de copiar e colar simulando a digitação no teclado. Clique com o botão direito para colar."
+  },
+  "popupTitle": {
+    "message": "Configurações do Anti-Paste Bypass"
+  },
+  "popupSubtitle": {
+    "message": "Desbloqueio Inteligente"
+  },
+  "speedLabel": {
+    "message": "Velocidade de digitação"
+  },
+  "speedSlow": {
+    "message": "Lenta (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normal (15ms)"
+  },
+  "speedFast": {
+    "message": "Rápida (5ms)"
+  },
+  "speedInstant": {
+    "message": "Instantânea (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "Como funciona?"
+  },
+  "instruction1": {
+    "message": "Copie seu texto (Ctrl+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Clique com o botão direito no campo bloqueado na página da web."
+  },
+  "instruction3": {
+    "message": "Selecione \"Colar com Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "A extensão digitará o texto para você."
+  },
+  "contextMenuTitle": {
+    "message": "Colar com Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Texto para colar"
+  },
+  "textPlaceholder": {
+    "message": "Cole seu texto aqui primeiro..."
+  },
+  "textEmptyAlert": {
+    "message": "O texto está vazio! Clique no ícone da extensão para colar seu texto primeiro."
+  },
+  "onboardingTitle": {
+    "message": "Bem-vindo!"
+  },
+  "onboardingButton": {
+    "message": "Entendi"
+  },
+  "historyTitle": {
+    "message": "Histórico Recente"
+  },
+  "historyEmpty": {
+    "message": "Nenhum histórico"
+  },
+  "clearHistory": {
+    "message": "Limpar"
+  },
+  "step1Title": {
+    "message": "Fixe a extensão"
+  },
+  "step1Desc": {
+    "message": "Clique no ícone 🧩 Quebra-cabeça no canto superior direito do Chrome e clique no alfinete 📌 para acessar facilmente."
+  },
+  "step2Title": {
+    "message": "Prepare o seu texto"
+  },
+  "step2Desc": {
+    "message": "Abra a extensão e cole o seu texto na área de texto."
+  },
+  "step3Title": {
+    "message": "Contorne o bloqueio"
+  },
+  "step3Desc": {
+    "message": "No site bloqueado, Clique com o botão direito -> Colar com Anti-Paste Bypass."
+  }
+}

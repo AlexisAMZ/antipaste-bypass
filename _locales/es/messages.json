@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Anti-Paste Bypass"
+  },
+  "extensionDescription": {
+    "message": "Elude las restricciones de copiar y pegar simulando la escritura del teclado. Haga clic derecho para pegar."
+  },
+  "popupTitle": {
+    "message": "Configuración de Anti-Paste Bypass"
+  },
+  "popupSubtitle": {
+    "message": "Bypass de portapapeles inteligente"
+  },
+  "speedLabel": {
+    "message": "Velocidad de escritura"
+  },
+  "speedSlow": {
+    "message": "Lenta (50ms)"
+  },
+  "speedNormal": {
+    "message": "Normal (15ms)"
+  },
+  "speedFast": {
+    "message": "Rápida (5ms)"
+  },
+  "speedInstant": {
+    "message": "Instantánea (0ms)"
+  },
+  "instructionsTitle": {
+    "message": "¿Cómo funciona?"
+  },
+  "instruction1": {
+    "message": "Copia tu texto (Ctrl+C / Cmd+C)."
+  },
+  "instruction2": {
+    "message": "Haz clic derecho en el campo bloqueado de la página web."
+  },
+  "instruction3": {
+    "message": "Selecciona \"Pegar con Anti-Paste Bypass\"."
+  },
+  "instruction4": {
+    "message": "La extensión escribirá el texto por ti."
+  },
+  "contextMenuTitle": {
+    "message": "Pegar con Anti-Paste Bypass"
+  },
+  "textLabel": {
+    "message": "Texto para pegar"
+  },
+  "textPlaceholder": {
+    "message": "Pega tu texto aquí primero..."
+  },
+  "textEmptyAlert": {
+    "message": "¡El texto está vacío! Haz clic en la extensión para pegar tu texto primero."
+  },
+  "onboardingTitle": {
+    "message": "¡Bienvenido!"
+  },
+  "onboardingButton": {
+    "message": "Entendido"
+  },
+  "historyTitle": {
+    "message": "Historial Reciente"
+  },
+  "historyEmpty": {
+    "message": "Sin historial"
+  },
+  "clearHistory": {
+    "message": "Borrar"
+  },
+  "step1Title": {
+    "message": "Fija la extensión"
+  },
+  "step1Desc": {
+    "message": "Haz clic en el icono 🧩 Rompecabezas en la parte superior derecha de Chrome y haz clic en la chincheta 📌 para acceder fácilmente."
+  },
+  "step2Title": {
+    "message": "Prepara tu texto"
+  },
+  "step2Desc": {
+    "message": "Abre la extensión y pega tu texto en el área de texto."
+  },
+  "step3Title": {
+    "message": "Evita el bloqueo"
+  },
+  "step3Desc": {
+    "message": "En el sitio bloqueado, haz Clic Derecho -> Pegar con Anti-Paste Bypass."
+  }
+}
