@@ -15,7 +15,6 @@
   <div class="bg-scan"></div>
   <div class="bg-vignette"></div>
 
-  <!-- Corner Labels -->
   <span class="bg-coords bg-coords-tl">SYS · ANTIPASTE · v26.7.21</span>
   <span class="bg-coords bg-coords-tr">BYPASS ENGINE · ACTIVE</span>
   <span class="bg-coords bg-coords-bl">CH 01 · ONBOARDING</span>
@@ -46,15 +45,15 @@
     <nav class="stepper" id="stepper">
       <div class="step-pill active" data-step="0">
         <span class="step-num">01</span>
-        <span class="step-label">Langue</span>
+        <span class="step-label">Language</span>
       </div>
       <div class="step-pill" data-step="1">
         <span class="step-num">02</span>
-        <span class="step-label">Fonctions</span>
+        <span class="step-label">Features</span>
       </div>
       <div class="step-pill" data-step="2">
         <span class="step-num">03</span>
-        <span class="step-label">Lancement</span>
+        <span class="step-label">Launch</span>
       </div>
     </nav>
 
@@ -67,12 +66,12 @@
           <div class="welcome-frame">
             <p class="welcome-tagline">CHROME EXTENSION · ANTI-PASTE · BYPASS</p>
             <h1 class="welcome-display">
-              <span class="word" style="animation-delay:0.1s">Collez</span>
-              <span class="word" style="animation-delay:0.2s">partout,</span>
+              <span class="word" style="animation-delay:0.1s">Paste</span>
+              <span class="word" style="animation-delay:0.2s">anywhere,</span>
               <br>
-              <span class="word italic" style="animation-delay:0.4s">sans limites.</span>
+              <span class="word italic" style="animation-delay:0.4s">no limits.</span>
             </h1>
-            <p class="welcome-sub">
+            <p class="welcome-sub" data-i18n="ob_subtitle">
               The extension that bypasses paste restrictions on any website. Choose your language to get started.
             </p>
 
@@ -129,7 +128,7 @@
 
             <div class="step-nav" style="justify-content: center;">
               <button class="btn btn-primary" id="btn-next-0">
-                <span>Continue</span>
+                <span data-i18n="ob_continue">Continue</span>
                 <span class="btn-icon">→</span>
               </button>
             </div>
@@ -140,66 +139,63 @@
       <!-- ─── STEP 1 : Features ─── -->
       <section class="wizard-step" data-step="1">
         <div class="step-frame">
-          <!-- Left: editorial header -->
           <div class="step-header">
             <div class="step-eyebrow">02 / FEATURES · BYPASS</div>
             <h1 class="step-title">
-              Ce que vous<br>
-              <span class="accent">pouvez faire</span>.
+              <span data-i18n="ob_featuresTitle">What you <span class="accent">can do</span>.</span>
             </h1>
-            <p class="step-desc">
-              Anti-Paste Bypass simule une vraie frappe humaine pour contourner les blocages de collage sur tous les sites.
+            <p class="step-desc" data-i18n="ob_featuresDesc">
+              Anti-Paste Bypass simulates real human typing to bypass paste blocks on any website.
             </p>
             <div class="step-meta">
-              <span class="step-meta-item">FRAPPE SIMULÉE</span>
-              <span class="step-meta-item">ANTI-IA</span>
-              <span class="step-meta-item">RACCOURCI</span>
+              <span class="step-meta-item">TYPING</span>
+              <span class="step-meta-item">ANTI-AI</span>
+              <span class="step-meta-item">SHORTCUT</span>
             </div>
           </div>
 
-          <!-- Right: features -->
           <div class="step-content">
             <div class="glass frame-brackets features-list">
               <div class="feature-row">
                 <span class="feature-icon">⌨️</span>
                 <div class="feature-text">
-                  <span class="feature-title">Simulated Typing</span>
-                  <span class="feature-desc">Typed letter by letter, indistinguishable from a human.</span>
+                  <span class="feature-title" data-i18n="ob_f1Title">Simulated Typing</span>
+                  <span class="feature-desc" data-i18n="ob_f1Desc">Text is typed letter by letter, indistinguishable from a real human.</span>
                 </div>
               </div>
               <div class="feature-row">
                 <span class="feature-icon">🪄</span>
                 <div class="feature-text">
-                  <span class="feature-title">Bouton Magique 🧩</span>
-                  <span class="feature-desc">Un bouton apparaît dans chaque champ de texte.</span>
+                  <span class="feature-title" data-i18n="ob_f2Title">Magic Button 🧩</span>
+                  <span class="feature-desc" data-i18n="ob_f2Desc">A button appears in every text field when you click on it.</span>
                 </div>
               </div>
               <div class="feature-row">
                 <span class="feature-icon">🧠</span>
                 <div class="feature-text">
-                  <span class="feature-title">Ultra-Human Mode</span>
-                  <span class="feature-desc">Typos + corrections to fool AI detectors.</span>
+                  <span class="feature-title" data-i18n="ob_f3Title">Ultra-Human Mode</span>
+                  <span class="feature-desc" data-i18n="ob_f3Desc">Simulates typos and corrections to fool AI detectors.</span>
                 </div>
               </div>
               <div class="feature-row">
                 <span class="feature-icon">🔑</span>
                 <div class="feature-text">
-                  <span class="feature-title">Raccourci Clavier</span>
-                  <span class="feature-desc"><kbd class="kbd">Option + Shift + V</kbd> pour coller sans clic droit.</span>
+                  <span class="feature-title" data-i18n="ob_f4Title">Keyboard Shortcut</span>
+                  <span class="feature-desc" data-i18n="ob_f4Desc">Option + Shift + V to paste without right-clicking.</span>
                 </div>
               </div>
               <div class="feature-row">
                 <span class="feature-icon">🕵️</span>
                 <div class="feature-text">
-                  <span class="feature-title">Incognito Mode</span>
-                  <span class="feature-desc">No sensitive text saved in history.</span>
+                  <span class="feature-title" data-i18n="ob_f5Title">Incognito Mode</span>
+                  <span class="feature-desc" data-i18n="ob_f5Desc">No sensitive text is ever saved in history.</span>
                 </div>
               </div>
               <div class="feature-row last">
                 <span class="feature-icon">🌍</span>
                 <div class="feature-text">
-                  <span class="feature-title">6 Langues</span>
-                  <span class="feature-desc">EN, FR, ES, PT, IT, DE — changeable à tout moment.</span>
+                  <span class="feature-title" data-i18n="ob_f6Title">6 Languages</span>
+                  <span class="feature-desc" data-i18n="ob_f6Desc">EN, FR, ES, PT, IT, DE — changeable at any time.</span>
                 </div>
               </div>
             </div>
@@ -207,10 +203,10 @@
             <div class="step-nav">
               <button class="btn btn-ghost" id="btn-back-1">
                 <span class="btn-icon">←</span>
-                <span>Back</span>
+                <span data-i18n="ob_back">Back</span>
               </button>
               <button class="btn btn-primary" id="btn-next-1">
-                <span>Continue</span>
+                <span data-i18n="ob_continue">Continue</span>
                 <span class="btn-icon">→</span>
               </button>
             </div>
@@ -224,32 +220,26 @@
           <div class="finish-frame">
             <div class="finish-check">✓</div>
             <div class="step-eyebrow" style="justify-content: center;">03 / READY · LAUNCH</div>
-            <h1 class="finish-title">All done.</h1>
-            <p class="welcome-sub">
+            <h1 class="finish-title" data-i18n="ob_doneTitle">All done.</h1>
+            <p class="welcome-sub" data-i18n="ob_doneSub">
               Pin the extension to access it quickly, then go to any blocked website.
             </p>
 
             <div class="glass pin-instructions frame-brackets">
               <div class="pin-label">
-                <span class="section-label">📌 ÉPINGLER L'EXTENSION</span>
+                <span class="section-label" data-i18n="ob_pinLabel">📌 PIN THE EXTENSION</span>
               </div>
               <ol class="pin-steps">
-                <li>
-                  <strong>Click</strong> the <span class="highlight">🧩 Puzzle icon</span> at the top right of Chrome
-                </li>
-                <li>
-                  <strong>Find</strong> <span class="highlight">Anti-Paste Bypass</span> and click 📌
-                </li>
-                <li>
-                  Copy text (<kbd>Cmd+C</kbd>), then use <kbd>Option+Shift+V</kbd> or click the 🧩 button
-                </li>
+                <li data-i18n="ob_pin1">Click the 🧩 Puzzle icon at the top right of Chrome</li>
+                <li data-i18n="ob_pin2">Find Anti-Paste Bypass and click the pin 📌</li>
+                <li data-i18n="ob_pin3">Copy text (Cmd+C), then use Option+Shift+V or the 🧩 button</li>
               </ol>
             </div>
 
-            <button id="start-btn" class="btn btn-finish">
+            <button id="start-btn" class="btn btn-finish" data-i18n="ob_letsgo">
               Let's go →
             </button>
-            <p class="finish-hint">
+            <p class="finish-hint" data-i18n="ob_hint">
               All settings are available in the extension popup.
             </p>
           </div>

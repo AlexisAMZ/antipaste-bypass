@@ -94,5 +94,80 @@
   },
   "incognitoLabel": {
     "message": "Modalità Incognito (Non salvare la cronologia)"
+  },
+  "ob_subtitle": {
+    "message": "L'estensione che aggira le restrizioni di incollaggio su qualsiasi sito. Scegli la tua lingua."
+  },
+  "ob_continue": {
+    "message": "Continua"
+  },
+  "ob_back": {
+    "message": "Indietro"
+  },
+  "ob_featuresTitle": {
+    "message": "Cosa puoi fare"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simula la digitazione umana reale per aggirare i blocchi."
+  },
+  "ob_f1Title": {
+    "message": "Digitazione Simulata"
+  },
+  "ob_f1Desc": {
+    "message": "Il testo viene digitato lettera per lettera, indistinguibile da un umano."
+  },
+  "ob_f2Title": {
+    "message": "Pulsante Magico 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "Un pulsante appare in ogni campo di testo quando ci clicchi."
+  },
+  "ob_f3Title": {
+    "message": "Modalità Ultra-Umana"
+  },
+  "ob_f3Desc": {
+    "message": "Simula errori di battitura e correzioni per ingannare i rilevatori di IA."
+  },
+  "ob_f4Title": {
+    "message": "Scorciatoia da Tastiera"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V per incollare senza clic destro."
+  },
+  "ob_f5Title": {
+    "message": "Modalità Incognito"
+  },
+  "ob_f5Desc": {
+    "message": "Nessun testo sensibile viene salvato nella cronologia."
+  },
+  "ob_f6Title": {
+    "message": "6 Lingue"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — modificabile in qualsiasi momento."
+  },
+  "ob_doneTitle": {
+    "message": "Tutto pronto."
+  },
+  "ob_doneSub": {
+    "message": "Fissa l'estensione per accedervi rapidamente, poi vai su qualsiasi sito bloccato."
+  },
+  "ob_pinLabel": {
+    "message": "📌 FISSA L'ESTENSIONE"
+  },
+  "ob_pin1": {
+    "message": "Clicca sull'icona 🧩 Puzzle in alto a destra di Chrome"
+  },
+  "ob_pin2": {
+    "message": "Trova Anti-Paste Bypass e clicca il pin 📌"
+  },
+  "ob_pin3": {
+    "message": "Copia testo (Cmd+C), poi usa Option+Shift+V o il pulsante 🧩"
+  },
+  "ob_letsgo": {
+    "message": "Andiamo →"
+  },
+  "ob_hint": {
+    "message": "Tutte le impostazioni sono disponibili nel popup dell'estensione."
   }
 }

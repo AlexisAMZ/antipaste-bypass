@@ -94,5 +94,80 @@
   },
   "incognitoLabel": {
     "message": "Modo Incógnito (No guardar historial)"
+  },
+  "ob_subtitle": {
+    "message": "La extensión que evita las restricciones de pegado en cualquier sitio. Elige tu idioma."
+  },
+  "ob_continue": {
+    "message": "Continuar"
+  },
+  "ob_back": {
+    "message": "Atrás"
+  },
+  "ob_featuresTitle": {
+    "message": "Lo que puedes hacer"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simula escritura humana real para superar bloqueos de pegado."
+  },
+  "ob_f1Title": {
+    "message": "Escritura Simulada"
+  },
+  "ob_f1Desc": {
+    "message": "El texto se escribe letra por letra, indistinguible de un humano."
+  },
+  "ob_f2Title": {
+    "message": "Botón Mágico 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "Un botón aparece en cada campo de texto al hacer clic."
+  },
+  "ob_f3Title": {
+    "message": "Modo Ultra-Humano"
+  },
+  "ob_f3Desc": {
+    "message": "Simula errores tipográficos y correcciones para engañar detectores de IA."
+  },
+  "ob_f4Title": {
+    "message": "Atajo de Teclado"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V para pegar sin clic derecho."
+  },
+  "ob_f5Title": {
+    "message": "Modo Incógnito"
+  },
+  "ob_f5Desc": {
+    "message": "Ningún texto sensible se guarda en el historial."
+  },
+  "ob_f6Title": {
+    "message": "6 Idiomas"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — modificable en cualquier momento."
+  },
+  "ob_doneTitle": {
+    "message": "Todo listo."
+  },
+  "ob_doneSub": {
+    "message": "Fija la extensión para acceder rápido, luego ve a cualquier sitio bloqueado."
+  },
+  "ob_pinLabel": {
+    "message": "📌 FIJAR LA EXTENSIÓN"
+  },
+  "ob_pin1": {
+    "message": "Haz clic en el icono 🧩 Puzzle en la parte superior derecha de Chrome"
+  },
+  "ob_pin2": {
+    "message": "Encuentra Anti-Paste Bypass y haz clic en el pin 📌"
+  },
+  "ob_pin3": {
+    "message": "Copia texto (Cmd+C), luego usa Option+Shift+V o el botón 🧩"
+  },
+  "ob_letsgo": {
+    "message": "¡Empezar →"
+  },
+  "ob_hint": {
+    "message": "Todos los ajustes están disponibles en el popup de la extensión."
   }
 }

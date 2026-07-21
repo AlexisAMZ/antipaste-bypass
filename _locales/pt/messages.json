@@ -94,5 +94,80 @@
   },
   "incognitoLabel": {
     "message": "Modo Incógnito (Não salvar histórico)"
+  },
+  "ob_subtitle": {
+    "message": "A extensão que contorna restrições de colagem em qualquer site. Escolha o seu idioma."
+  },
+  "ob_continue": {
+    "message": "Continuar"
+  },
+  "ob_back": {
+    "message": "Voltar"
+  },
+  "ob_featuresTitle": {
+    "message": "O que você pode fazer"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simula digitação humana real para contornar bloqueios de colagem."
+  },
+  "ob_f1Title": {
+    "message": "Digitação Simulada"
+  },
+  "ob_f1Desc": {
+    "message": "O texto é digitado letra por letra, indistinguível de um humano."
+  },
+  "ob_f2Title": {
+    "message": "Botão Mágico 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "Um botão aparece em cada campo de texto ao clicar."
+  },
+  "ob_f3Title": {
+    "message": "Modo Ultra-Humano"
+  },
+  "ob_f3Desc": {
+    "message": "Simula erros de digitação e correções para enganar detectores de IA."
+  },
+  "ob_f4Title": {
+    "message": "Atalho de Teclado"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V para colar sem clicar com o botão direito."
+  },
+  "ob_f5Title": {
+    "message": "Modo Incógnito"
+  },
+  "ob_f5Desc": {
+    "message": "Nenhum texto sensível é salvo no histórico."
+  },
+  "ob_f6Title": {
+    "message": "6 Idiomas"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — alterável a qualquer momento."
+  },
+  "ob_doneTitle": {
+    "message": "Tudo pronto."
+  },
+  "ob_doneSub": {
+    "message": "Fixe a extensão para acesso rápido, depois vá a qualquer site bloqueado."
+  },
+  "ob_pinLabel": {
+    "message": "📌 FIXAR A EXTENSÃO"
+  },
+  "ob_pin1": {
+    "message": "Clique no ícone 🧩 Puzzle no canto superior direito do Chrome"
+  },
+  "ob_pin2": {
+    "message": "Encontre Anti-Paste Bypass e clique no pin 📌"
+  },
+  "ob_pin3": {
+    "message": "Copie texto (Cmd+C), depois use Option+Shift+V ou o botão 🧩"
+  },
+  "ob_letsgo": {
+    "message": "Vamos lá →"
+  },
+  "ob_hint": {
+    "message": "Todas as configurações estão disponíveis no popup da extensão."
   }
 }

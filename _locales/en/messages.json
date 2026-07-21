@@ -96,5 +96,80 @@
   },
   "incognitoLabel": {
     "message": "Incognito Mode (Do not save history)"
+  },
+  "ob_subtitle": {
+    "message": "The extension that bypasses paste restrictions on any website. Choose your language to get started."
+  },
+  "ob_continue": {
+    "message": "Continue"
+  },
+  "ob_back": {
+    "message": "Back"
+  },
+  "ob_featuresTitle": {
+    "message": "What you can do"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simulates real human typing to bypass paste blocks on any website."
+  },
+  "ob_f1Title": {
+    "message": "Simulated Typing"
+  },
+  "ob_f1Desc": {
+    "message": "Text is typed letter by letter, indistinguishable from a real human."
+  },
+  "ob_f2Title": {
+    "message": "Magic Button 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "A button appears in every text field when you click on it."
+  },
+  "ob_f3Title": {
+    "message": "Ultra-Human Mode"
+  },
+  "ob_f3Desc": {
+    "message": "Simulates typos and corrections to fool AI detectors."
+  },
+  "ob_f4Title": {
+    "message": "Keyboard Shortcut"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V to paste without right-clicking."
+  },
+  "ob_f5Title": {
+    "message": "Incognito Mode"
+  },
+  "ob_f5Desc": {
+    "message": "No sensitive text is ever saved in history."
+  },
+  "ob_f6Title": {
+    "message": "6 Languages"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — changeable at any time."
+  },
+  "ob_doneTitle": {
+    "message": "All done."
+  },
+  "ob_doneSub": {
+    "message": "Pin the extension to access it quickly, then go to any blocked website."
+  },
+  "ob_pinLabel": {
+    "message": "📌 PIN THE EXTENSION"
+  },
+  "ob_pin1": {
+    "message": "Click the 🧩 Puzzle icon at the top right of Chrome"
+  },
+  "ob_pin2": {
+    "message": "Find Anti-Paste Bypass and click the pin 📌"
+  },
+  "ob_pin3": {
+    "message": "Copy text (Cmd+C), then use Option+Shift+V or the 🧩 button"
+  },
+  "ob_letsgo": {
+    "message": "Let's go →"
+  },
+  "ob_hint": {
+    "message": "All settings are available in the extension popup."
   }
 }

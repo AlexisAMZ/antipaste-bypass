@@ -94,5 +94,80 @@
   },
   "incognitoLabel": {
     "message": "Mode Incognito (Ne pas sauvegarder l'historique)"
+  },
+  "ob_subtitle": {
+    "message": "L'extension qui contourne les restrictions de collage sur n'importe quel site. Choisissez votre langue."
+  },
+  "ob_continue": {
+    "message": "Continuer"
+  },
+  "ob_back": {
+    "message": "Retour"
+  },
+  "ob_featuresTitle": {
+    "message": "Ce que vous pouvez faire"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simule une vraie frappe humaine pour contourner les blocages de collage."
+  },
+  "ob_f1Title": {
+    "message": "Frappe Simulée"
+  },
+  "ob_f1Desc": {
+    "message": "Le texte est tapé lettre par lettre, indiscernable d'un humain."
+  },
+  "ob_f2Title": {
+    "message": "Bouton Magique 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "Un bouton apparaît dans chaque champ de texte quand vous cliquez dessus."
+  },
+  "ob_f3Title": {
+    "message": "Mode Ultra-Humain"
+  },
+  "ob_f3Desc": {
+    "message": "Simule des fautes et corrections pour tromper les détecteurs d'IA."
+  },
+  "ob_f4Title": {
+    "message": "Raccourci Clavier"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V pour coller sans faire de clic droit."
+  },
+  "ob_f5Title": {
+    "message": "Mode Incognito"
+  },
+  "ob_f5Desc": {
+    "message": "Aucun texte sensible n'est jamais sauvegardé dans l'historique."
+  },
+  "ob_f6Title": {
+    "message": "6 Langues"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — modifiable à tout moment."
+  },
+  "ob_doneTitle": {
+    "message": "Tout est prêt."
+  },
+  "ob_doneSub": {
+    "message": "Épinglez l'extension pour y accéder facilement, puis allez sur un site bloqué."
+  },
+  "ob_pinLabel": {
+    "message": "📌 ÉPINGLER L'EXTENSION"
+  },
+  "ob_pin1": {
+    "message": "Cliquez sur l'icône 🧩 Puzzle en haut à droite de Chrome"
+  },
+  "ob_pin2": {
+    "message": "Trouvez Anti-Paste Bypass et cliquez sur l'épingle 📌"
+  },
+  "ob_pin3": {
+    "message": "Copiez du texte (Cmd+C), puis utilisez Option+Shift+V ou le bouton 🧩"
+  },
+  "ob_letsgo": {
+    "message": "C'est parti →"
+  },
+  "ob_hint": {
+    "message": "Tous les réglages sont disponibles dans le popup de l'extension."
   }
 }

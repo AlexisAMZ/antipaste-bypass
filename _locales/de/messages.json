@@ -94,5 +94,80 @@
   },
   "incognitoLabel": {
     "message": "Inkognito-Modus (Verlauf nicht speichern)"
+  },
+  "ob_subtitle": {
+    "message": "Die Erweiterung, die Einfüge-Einschränkungen auf jeder Website umgeht. Wähle deine Sprache."
+  },
+  "ob_continue": {
+    "message": "Weiter"
+  },
+  "ob_back": {
+    "message": "Zurück"
+  },
+  "ob_featuresTitle": {
+    "message": "Was du tun kannst"
+  },
+  "ob_featuresDesc": {
+    "message": "Anti-Paste Bypass simuliert echtes menschliches Tippen, um Einfüge-Sperren zu umgehen."
+  },
+  "ob_f1Title": {
+    "message": "Simuliertes Tippen"
+  },
+  "ob_f1Desc": {
+    "message": "Text wird Buchstabe für Buchstabe getippt, nicht von einem Menschen zu unterscheiden."
+  },
+  "ob_f2Title": {
+    "message": "Magische Schaltfläche 🧩"
+  },
+  "ob_f2Desc": {
+    "message": "Eine Schaltfläche erscheint in jedem Textfeld, wenn du draufklickst."
+  },
+  "ob_f3Title": {
+    "message": "Ultra-Mensch-Modus"
+  },
+  "ob_f3Desc": {
+    "message": "Simuliert Tippfehler und Korrekturen, um KI-Detektoren zu täuschen."
+  },
+  "ob_f4Title": {
+    "message": "Tastenkürzel"
+  },
+  "ob_f4Desc": {
+    "message": "Option + Shift + V zum Einfügen ohne Rechtsklick."
+  },
+  "ob_f5Title": {
+    "message": "Inkognito-Modus"
+  },
+  "ob_f5Desc": {
+    "message": "Kein sensibler Text wird im Verlauf gespeichert."
+  },
+  "ob_f6Title": {
+    "message": "6 Sprachen"
+  },
+  "ob_f6Desc": {
+    "message": "EN, FR, ES, PT, IT, DE — jederzeit änderbar."
+  },
+  "ob_doneTitle": {
+    "message": "Alles bereit."
+  },
+  "ob_doneSub": {
+    "message": "Hefte die Erweiterung an, um schnell darauf zuzugreifen, und besuche dann eine gesperrte Website."
+  },
+  "ob_pinLabel": {
+    "message": "📌 ERWEITERUNG ANHEFTEN"
+  },
+  "ob_pin1": {
+    "message": "Klicke auf das 🧩 Puzzle-Symbol oben rechts in Chrome"
+  },
+  "ob_pin2": {
+    "message": "Finde Anti-Paste Bypass und klicke auf die Nadel 📌"
+  },
+  "ob_pin3": {
+    "message": "Kopiere Text (Cmd+C), dann nutze Option+Shift+V oder die 🧩 Schaltfläche"
+  },
+  "ob_letsgo": {
+    "message": "Los geht's →"
+  },
+  "ob_hint": {
+    "message": "Alle Einstellungen sind im Popup der Erweiterung verfügbar."
   }
 }
