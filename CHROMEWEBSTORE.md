@@ -274,6 +274,13 @@ FUNKTIONEN
 
 **Data Collection:** The extension collects NO personal data. Text processed by Anti-Paste Bypass is stored locally only via `chrome.storage.local` and is never transmitted to any external server. In Incognito Mode, even local storage of paste history is disabled entirely.
 
+---
+
+## 🌍 Justification de l'autorisation d'accès à l'hôte (Host Permission)
+*(À copier-coller dans la case "Autorisation d'accès à l'hôte" / "Host permissions justification" sur le Chrome Web Store)*
+
+**Pourquoi demandez-vous l'accès à `<all_urls>` ?**
+"This extension requires the `<all_urls>` host permission in its content scripts because it is designed to bypass paste restrictions on any website the user visits. The core feature—injecting a subtle UI button and simulating keyboard typing events directly into input fields—must be universally available across the web, as paste blocks can occur on any domain (e.g., exam platforms, banking sites, internal company tools). The script only activates and interacts with the page when the user explicitly triggers it via the UI or context menu."
 ## 🎯 Objectif Unique (Single Purpose Description)
 *(À renseigner dans la section "Description de l'objectif de l'extension" du Developer Dashboard)*
 
