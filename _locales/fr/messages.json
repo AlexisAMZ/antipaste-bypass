@@ -1,12 +1,12 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass"
+    "message": "Anti-Paste & Select/Copy"
   },
   "extensionDescription": {
-    "message": "Contourne les restrictions de copier-coller en simulant la frappe au clavier. Utilisez le clic droit pour coller."
+    "message": "Contourne les restrictions de copier-coller en simulant la frappe au clavier. Débloque le clic droit et la sélection de texte sur n'importe quel site."
   },
   "popupTitle": {
-    "message": "Réglages Anti-Paste Bypass"
+    "message": "Réglages Anti-Paste & Select/Copy"
   },
   "popupSubtitle": {
     "message": "Contournement intelligent"
@@ -36,13 +36,13 @@
     "message": "Faites un clic droit sur le champ bloqué dans la page web."
   },
   "instruction3": {
-    "message": "Sélectionnez \"Coller avec Anti-Paste Bypass\"."
+    "message": "Sélectionnez \"Coller avec Anti-Paste\"."
   },
   "instruction4": {
     "message": "L'extension écrira le texte à votre place."
   },
   "contextMenuTitle": {
-    "message": "Coller avec Anti-Paste Bypass"
+    "message": "Coller avec Anti-Paste"
   },
   "textLabel": {
     "message": "Texte à coller"
@@ -84,16 +84,19 @@
     "message": "Contournez le blocage"
   },
   "step3Desc": {
-    "message": "Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste Bypass."
+    "message": "Sur le site bloqué, faites Clic Droit -> Coller avec Anti-Paste."
   },
   "antiAILabel": {
     "message": "Mode Ultra-Humain (Fautes & Corrections)"
   },
   "commandDescription": {
-    "message": "Coller avec Anti-Paste Bypass"
+    "message": "Coller avec Anti-Paste"
   },
   "incognitoLabel": {
     "message": "Mode Incognito (Ne pas sauvegarder l'historique)"
+  },
+  "rightclickLabel": {
+    "message": "Forcer le clic droit (Bypass)"
   },
   "ob_subtitle": {
     "message": "L'extension qui contourne les restrictions de collage sur n'importe quel site. Choisissez votre langue."
@@ -108,19 +111,13 @@
     "message": "Ce que vous pouvez faire"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simule une vraie frappe humaine pour contourner les blocages de collage."
+    "message": "Anti-Paste & Select/Copy simule une vraie frappe humaine pour contourner les blocages de collage."
   },
   "ob_f1Title": {
     "message": "Frappe Simulée"
   },
   "ob_f1Desc": {
     "message": "Le texte est tapé lettre par lettre, indiscernable d'un humain."
-  },
-  "ob_f2Title": {
-    "message": "Bouton Magique 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "Un bouton apparaît dans chaque champ de texte quand vous cliquez dessus."
   },
   "ob_f3Title": {
     "message": "Mode Ultra-Humain"
@@ -146,6 +143,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — modifiable à tout moment."
   },
+  "ob_f7Title": {
+    "message": "Déblocage du Clic Droit"
+  },
+  "ob_f7Desc": {
+    "message": "Débloque le clic droit et la sélection de texte sur n'importe quel site."
+  },
   "ob_doneTitle": {
     "message": "Tout est prêt."
   },
@@ -159,10 +162,10 @@
     "message": "Cliquez sur l'icône 🧩 Puzzle en haut à droite de Chrome"
   },
   "ob_pin2": {
-    "message": "Trouvez Anti-Paste Bypass et cliquez sur l'épingle 📌"
+    "message": "Trouvez Anti-Paste & Select/Copy et cliquez sur l'épingle 📌"
   },
   "ob_pin3": {
-    "message": "Copiez du texte ({COPY}), puis utilisez {PASTE} ou le bouton 🧩"
+    "message": "Copiez du texte ({COPY}), puis utilisez {PASTE}"
   },
   "ob_letsgo": {
     "message": "C'est parti →"

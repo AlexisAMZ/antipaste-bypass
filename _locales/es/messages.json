@@ -1,12 +1,12 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass"
+    "message": "Anti-Paste & Select/Copy"
   },
   "extensionDescription": {
-    "message": "Elude las restricciones de copiar y pegar simulando la escritura del teclado. Haga clic derecho para pegar."
+    "message": "Elude las restricciones de copiar y pegar simulando la escritura del teclado. Desbloquea el clic derecho y la selección de texto en cualquier sitio."
   },
   "popupTitle": {
-    "message": "Configuración de Anti-Paste Bypass"
+    "message": "Configuración de Anti-Paste & Select/Copy"
   },
   "popupSubtitle": {
     "message": "Bypass de portapapeles inteligente"
@@ -36,13 +36,13 @@
     "message": "Haz clic derecho en el campo bloqueado de la página web."
   },
   "instruction3": {
-    "message": "Selecciona \"Pegar con Anti-Paste Bypass\"."
+    "message": "Selecciona \"Pegar con Anti-Paste\"."
   },
   "instruction4": {
     "message": "La extensión escribirá el texto por ti."
   },
   "contextMenuTitle": {
-    "message": "Pegar con Anti-Paste Bypass"
+    "message": "Pegar con Anti-Paste"
   },
   "textLabel": {
     "message": "Texto para pegar"
@@ -84,16 +84,19 @@
     "message": "Evita el bloqueo"
   },
   "step3Desc": {
-    "message": "En el sitio bloqueado, haz Clic Derecho -> Pegar con Anti-Paste Bypass."
+    "message": "En el sitio bloqueado, haz Clic Derecho -> Pegar con Anti-Paste."
   },
   "antiAILabel": {
     "message": "Modo Ultra Humano (Errores y correcciones)"
   },
   "commandDescription": {
-    "message": "Pegar con Anti-Paste Bypass"
+    "message": "Pegar con Anti-Paste"
   },
   "incognitoLabel": {
     "message": "Modo Incógnito (No guardar historial)"
+  },
+  "rightclickLabel": {
+    "message": "Forzar clic derecho (Bypass)"
   },
   "ob_subtitle": {
     "message": "La extensión que evita las restricciones de pegado en cualquier sitio. Elige tu idioma."
@@ -108,19 +111,13 @@
     "message": "Lo que puedes hacer"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simula escritura humana real para superar bloqueos de pegado."
+    "message": "Anti-Paste & Select/Copy simula escritura humana real para superar bloqueos de pegado."
   },
   "ob_f1Title": {
     "message": "Escritura Simulada"
   },
   "ob_f1Desc": {
     "message": "El texto se escribe letra por letra, indistinguible de un humano."
-  },
-  "ob_f2Title": {
-    "message": "Botón Mágico 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "Un botón aparece en cada campo de texto al hacer clic."
   },
   "ob_f3Title": {
     "message": "Modo Ultra-Humano"
@@ -146,6 +143,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — modificable en cualquier momento."
   },
+  "ob_f7Title": {
+    "message": "Desbloqueo de Clic Derecho"
+  },
+  "ob_f7Desc": {
+    "message": "Desbloquea el clic derecho y la selección de texto en cualquier sitio."
+  },
   "ob_doneTitle": {
     "message": "Todo listo."
   },
@@ -159,10 +162,10 @@
     "message": "Haz clic en el icono 🧩 Puzzle en la parte superior derecha de Chrome"
   },
   "ob_pin2": {
-    "message": "Encuentra Anti-Paste Bypass y haz clic en el pin 📌"
+    "message": "Encuentra Anti-Paste & Select/Copy y haz clic en el pin 📌"
   },
   "ob_pin3": {
-    "message": "Copia texto ({COPY}), luego usa {PASTE} o el botón 🧩"
+    "message": "Copia texto ({COPY}), luego usa {PASTE}"
   },
   "ob_letsgo": {
     "message": "¡Empezar →"

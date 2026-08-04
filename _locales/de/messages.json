@@ -1,12 +1,12 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass"
+    "message": "Anti-Paste & Select/Copy"
   },
   "extensionDescription": {
-    "message": "Umgehen Sie Kopier- und Einfügebeschränkungen, indem Sie Tastatureingaben simulieren. Klicken Sie mit der rechten Maustaste zum Einfügen."
+    "message": "Umgehen Sie Kopier- und Einfügebeschränkungen, indem Sie Tastatureingaben simulieren. Entsperrt Rechtsklick und Textauswahl auf jeder Website."
   },
   "popupTitle": {
-    "message": "Anti-Paste Bypass Einstellungen"
+    "message": "Anti-Paste & Select/Copy Einstellungen"
   },
   "popupSubtitle": {
     "message": "Intelligenter Zwischenablage-Bypass"
@@ -36,13 +36,13 @@
     "message": "Klicken Sie mit der rechten Maustaste auf das blockierte Feld auf der Webseite."
   },
   "instruction3": {
-    "message": "Wählen Sie \"Einfügen mit Anti-Paste Bypass\"."
+    "message": "Wählen Sie \"Einfügen mit Anti-Paste\"."
   },
   "instruction4": {
     "message": "Die Erweiterung tippt den Text für Sie."
   },
   "contextMenuTitle": {
-    "message": "Einfügen mit Anti-Paste Bypass"
+    "message": "Einfügen mit Anti-Paste"
   },
   "textLabel": {
     "message": "Text zum Einfügen"
@@ -84,7 +84,7 @@
     "message": "Umgehen Sie die Sperre"
   },
   "step3Desc": {
-    "message": "Auf der blockierten Seite: Rechtsklick -> Einfügen mit Anti-Paste Bypass."
+    "message": "Auf der blockierten Seite: Rechtsklick -> Einfügen mit Anti-Paste."
   },
   "antiAILabel": {
     "message": "Ultra-Menschlicher Modus (Tippfehler & Korrekturen)"
@@ -94,6 +94,9 @@
   },
   "incognitoLabel": {
     "message": "Inkognito-Modus (Verlauf nicht speichern)"
+  },
+  "rightclickLabel": {
+    "message": "Rechtsklick erzwingen (Bypass)"
   },
   "ob_subtitle": {
     "message": "Die Erweiterung, die Einfüge-Einschränkungen auf jeder Website umgeht. Wähle deine Sprache."
@@ -108,19 +111,13 @@
     "message": "Was du tun kannst"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simuliert echtes menschliches Tippen, um Einfüge-Sperren zu umgehen."
+    "message": "Anti-Paste & Select/Copy simuliert echtes menschliches Tippen, um Einfüge-Sperren zu umgehen."
   },
   "ob_f1Title": {
     "message": "Simuliertes Tippen"
   },
   "ob_f1Desc": {
     "message": "Text wird Buchstabe für Buchstabe getippt, nicht von einem Menschen zu unterscheiden."
-  },
-  "ob_f2Title": {
-    "message": "Magische Schaltfläche 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "Eine Schaltfläche erscheint in jedem Textfeld, wenn du draufklickst."
   },
   "ob_f3Title": {
     "message": "Ultra-Mensch-Modus"
@@ -146,6 +143,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — jederzeit änderbar."
   },
+  "ob_f7Title": {
+    "message": "Rechtsklick-Entsperrung"
+  },
+  "ob_f7Desc": {
+    "message": "Entsperrt Rechtsklick und Textauswahl auf jeder Website."
+  },
   "ob_doneTitle": {
     "message": "Alles bereit."
   },
@@ -159,10 +162,10 @@
     "message": "Klicke auf das 🧩 Puzzle-Symbol oben rechts in Chrome"
   },
   "ob_pin2": {
-    "message": "Finde Anti-Paste Bypass und klicke auf die Nadel 📌"
+    "message": "Finde Anti-Paste & Select/Copy und klicke auf die Nadel 📌"
   },
   "ob_pin3": {
-    "message": "Kopiere Text ({COPY}), dann nutze {PASTE} oder die 🧩 Schaltfläche"
+    "message": "Kopiere Text ({COPY}), dann nutze {PASTE}"
   },
   "ob_letsgo": {
     "message": "Los geht's →"

@@ -56,7 +56,7 @@
       // ── Corner labels ──
       ctx.font = '500 10px "JetBrains Mono"';
       ctx.fillStyle = 'rgba(255,255,255,0.28)';
-      ctx.textAlign = 'left';  ctx.fillText('◻ SYS · ANTIPASTE · v26.7.21', 28, 28);
+      ctx.textAlign = 'left';  ctx.fillText('◻ SYS · ANTIPASTE · v26.7.31', 28, 28);
       ctx.textAlign = 'right'; ctx.fillText('◻ BYPASS ENGINE · ACTIVE', W-28, 28);
       ctx.textAlign = 'left';  ctx.fillText('◻ SECURE · ANTI-AI · READY', 28, H-18);
       ctx.textAlign = 'right'; ctx.fillText('◻ CHROME MV3 · 6 LANGS', W-28, H-18);
@@ -74,14 +74,14 @@
       ctx.font = '500 11px "JetBrains Mono"';
       ctx.letterSpacing = '3px';
       ctx.textAlign = 'center';
-      ctx.fillText('CHROME EXTENSION · PASTE FREEDOM', W/2, 100);
+      ctx.fillText('CHROME EXTENSION · COPY & PASTE FREEDOM', W/2, 100);
       ctx.letterSpacing = '0px';
 
       // Title
       ctx.fillStyle = '#f5f5f7';
       ctx.font = '300 96px "Fraunces"';
       ctx.textAlign = 'center';
-      ctx.fillText('Anti-Paste Bypass', W/2, 210);
+      ctx.fillText('Anti-Paste & Select/Copy', W/2, 210);
 
       // Accent underline
       const ulW = 340, ulX = W/2 - ulW/2;
@@ -98,35 +98,42 @@
       ctx.fillStyle = 'rgba(180,180,196,0.85)';
       ctx.font = '400 22px "Inter"';
       ctx.textAlign = 'center';
-      ctx.fillText('Stop retyping. Paste anywhere. Your time back, instantly.', W/2, 268);
+      ctx.fillText('Paste, click & select freely. Your time back, instantly.', W/2, 268);
 
-      // ── BOTTOM SECTION: Three feature cards ──
+      // ── BOTTOM SECTION: Four feature cards ──
       const cards = [
         {
           icon: '⌨️',
           eyebrow: '01 / TYPING',
           title: 'Simulated\nTyping',
-          desc: 'Letter by letter, with\nnatural speed variations.\nCompletely undetectable.',
+          desc: 'Paste into any blocked\nfield, letter by letter.\nCompletely undetectable.',
           accent: true
         },
         {
+          icon: '🖱️',
+          eyebrow: '02 / RIGHT-CLICK',
+          title: 'Click &\nSelect',
+          desc: 'Unblocks right-click\nand text selection\non any website.',
+          accent: false
+        },
+        {
           icon: '🧠',
-          eyebrow: '02 / AI MODE',
+          eyebrow: '03 / AI MODE',
           title: 'Ultra-Human\nMode',
           desc: 'Simulates typos and\nself-corrections to fool\nAI detection systems.',
           accent: false
         },
         {
           icon: '🕵️',
-          eyebrow: '03 / PRIVACY',
+          eyebrow: '04 / PRIVACY',
           title: 'Incognito\nMode',
           desc: 'Sensitive text is\nnever stored in history.\nZero local trace.',
           accent: false
         }
       ];
 
-      const cardW = 340, cardH = 310, cardPad = 36;
-      const cardsStartX = (W - (cardW * 3 + cardPad * 2)) / 2;
+      const cardW = 280, cardH = 310, cardPad = 20;
+      const cardsStartX = (W - (cardW * 4 + cardPad * 3)) / 2;
       const cardY = 330;
 
       cards.forEach((card, i) => {
@@ -213,7 +220,7 @@
       ctx.fillStyle = 'rgba(255,255,255,0.65)';
       ctx.font = '500 12px "JetBrains Mono"';
       ctx.textAlign = 'center';
-      ctx.fillText('⌘/Ctrl + Shift + V  ·  or click 🧩', W/2, badgeY + 23);
+      ctx.fillText('⌘/Ctrl + Shift + V  ·  or right-click → Paste', W/2, badgeY + 23);
 
       // Flags
       const flags = ['🇬🇧','🇫🇷','🇪🇸','🇵🇹','🇮🇹','🇩🇪'];

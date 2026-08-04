@@ -1,12 +1,12 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass"
+    "message": "Anti-Paste & Select/Copy"
   },
   "extensionDescription": {
-    "message": "Burlare as restrições de copiar e colar simulando a digitação no teclado. Clique com o botão direito para colar."
+    "message": "Burlare as restrições de copiar e colar simulando a digitação no teclado. Desbloqueia o clique direito e a seleção de texto em qualquer site."
   },
   "popupTitle": {
-    "message": "Configurações do Anti-Paste Bypass"
+    "message": "Configurações do Anti-Paste & Select/Copy"
   },
   "popupSubtitle": {
     "message": "Desbloqueio Inteligente"
@@ -36,13 +36,13 @@
     "message": "Clique com o botão direito no campo bloqueado na página da web."
   },
   "instruction3": {
-    "message": "Selecione \"Colar com Anti-Paste Bypass\"."
+    "message": "Selecione \"Colar com Anti-Paste\"."
   },
   "instruction4": {
     "message": "A extensão digitará o texto para você."
   },
   "contextMenuTitle": {
-    "message": "Colar com Anti-Paste Bypass"
+    "message": "Colar com Anti-Paste"
   },
   "textLabel": {
     "message": "Texto para colar"
@@ -84,16 +84,19 @@
     "message": "Contorne o bloqueio"
   },
   "step3Desc": {
-    "message": "No site bloqueado, Clique com o botão direito -> Colar com Anti-Paste Bypass."
+    "message": "No site bloqueado, Clique com o botão direito -> Colar com Anti-Paste."
   },
   "antiAILabel": {
     "message": "Modo Ultra Humano (Erros e correções)"
   },
   "commandDescription": {
-    "message": "Colar com Anti-Paste Bypass"
+    "message": "Colar com Anti-Paste"
   },
   "incognitoLabel": {
     "message": "Modo Incógnito (Não salvar histórico)"
+  },
+  "rightclickLabel": {
+    "message": "Forçar clique direito (Bypass)"
   },
   "ob_subtitle": {
     "message": "A extensão que contorna restrições de colagem em qualquer site. Escolha o seu idioma."
@@ -108,19 +111,13 @@
     "message": "O que você pode fazer"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simula digitação humana real para contornar bloqueios de colagem."
+    "message": "Anti-Paste & Select/Copy simula digitação humana real para contornar bloqueios de colagem."
   },
   "ob_f1Title": {
     "message": "Digitação Simulada"
   },
   "ob_f1Desc": {
     "message": "O texto é digitado letra por letra, indistinguível de um humano."
-  },
-  "ob_f2Title": {
-    "message": "Botão Mágico 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "Um botão aparece em cada campo de texto ao clicar."
   },
   "ob_f3Title": {
     "message": "Modo Ultra-Humano"
@@ -146,6 +143,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — alterável a qualquer momento."
   },
+  "ob_f7Title": {
+    "message": "Desbloqueio de Clique Direito"
+  },
+  "ob_f7Desc": {
+    "message": "Desbloqueia o clique direito e a seleção de texto em qualquer site."
+  },
   "ob_doneTitle": {
     "message": "Tudo pronto."
   },
@@ -159,10 +162,10 @@
     "message": "Clique no ícone 🧩 Puzzle no canto superior direito do Chrome"
   },
   "ob_pin2": {
-    "message": "Encontre Anti-Paste Bypass e clique no pin 📌"
+    "message": "Encontre Anti-Paste & Select/Copy e clique no pin 📌"
   },
   "ob_pin3": {
-    "message": "Copie texto ({COPY}), depois use {PASTE} ou o botão 🧩"
+    "message": "Copie texto ({COPY}), depois use {PASTE}"
   },
   "ob_letsgo": {
     "message": "Vamos lá →"

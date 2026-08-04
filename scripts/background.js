@@ -11,7 +11,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "anti-paste-bypass",
-    title: chrome.i18n.getMessage("contextMenuTitle") || "Paste with Anti-Paste Bypass",
+    title: chrome.i18n.getMessage("contextMenuTitle") || "Paste with Anti-Paste & Select/Copy",
     contexts: ["editable"]
   });
   
@@ -26,6 +26,12 @@ chrome.runtime.onInstalled.addListener(() => {
 // Écoute du clic sur le menu contextuel
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "anti-paste-bypass") {
+    // Injecter le bypass clic droit si le mode est activé
+    const { rightClickBypass } = await chrome.storage.local.get(['rightClickBypass']);
+    if (rightClickBypass) {
+      await injectRightClickBypass(tab.id);
+    }
+    
     try {
       const { savedText, typingSpeed = 10, antiAiMode = false, incognitoMode = false } = await chrome.storage.local.get(['savedText', 'typingSpeed', 'antiAiMode', 'incognitoMode']);
       const text = savedText || "";
@@ -94,6 +100,60 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
   }
 });
 
+// --- GESTION DU BYPASS CLIC DROIT ---
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'inject-rightclick-bypass') {
+    injectRightClickBypass(message.tabId || sender.tab?.id);
+    sendResponse({ success: true });
+    return true;
+  }
+});
+
+// Injection automatique sur chaque nouvelle page quand le toggle est activé
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://') && !tab.url.startsWith('about:')) {
+    chrome.storage.local.get(['rightClickBypass'], (result) => {
+      if (result.rightClickBypass) {
+        injectRightClickBypass(tabId);
+      }
+    });
+  }
+});
+
+async function injectRightClickBypass(tabId) {
+  if (!tabId) return;
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId },
+      func: rightClickBypassInjection,
+      world: 'MAIN'
+    });
+  } catch (err) {
+    console.error("Erreur injection right-click bypass:", err);
+  }
+}
+
+function rightClickBypassInjection() {
+  document.querySelectorAll('[oncontextmenu]').forEach(el => el.removeAttribute('oncontextmenu'));
+  document.oncontextmenu = null;
+  document.querySelectorAll('[onselectstart]').forEach(el => el.removeAttribute('onselectstart'));
+  document.onselectstart = null;
+
+  const orig = Event.prototype.preventDefault;
+  Object.defineProperty(Event.prototype, 'preventDefault', {
+    value: function () {
+      if (this.type === 'contextmenu' || this.type === 'selectstart') return;
+      orig.call(this);
+    },
+    writable: true, configurable: true
+  });
+
+  const s = document.createElement('style');
+  s.id = '__apb_selection';
+  s.textContent = '*, *::before, *::after { user-select: auto !important; -webkit-user-select: auto !important; }';
+  document.documentElement.appendChild(s);
+}
+
 // --- GESTION OFFSCREEN (Lecture du presse-papiers) ---
 let creating; // Promise globale pour éviter de créer le document plusieurs fois en même temps
 async function setupOffscreenDocument() {
@@ -133,7 +193,7 @@ async function simulateTypingInPage(text, speed, antiAiMode) {
   const element = document.activeElement;
   
   if (!element || (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA' && !element.isContentEditable)) {
-    alert("❌ Anti-Paste Bypass : Veuillez faire un clic GAUCHE dans le champ pour le sélectionner, PUIS faites votre clic droit !");
+    alert("❌ Anti-Paste & Select/Copy : Veuillez faire un clic GAUCHE dans le champ pour le sélectionner, PUIS faites votre clic droit !");
     return;
   }
 

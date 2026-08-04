@@ -61,7 +61,7 @@
       // 6. Titre Géant au centre (Fraunces)
       ctx.fillStyle = '#f5f5f7';
       ctx.font = '300 52px "Fraunces"';
-      ctx.fillText('Anti-Paste', W/2, 120);
+      ctx.fillText('Anti-Paste &', W/2, 120);
 
       // 7. Mot "Bypass" en Italique Violet éclatant
       const grad = ctx.createLinearGradient(W/2 - 80, 0, W/2 + 80, 0);
@@ -69,12 +69,12 @@
       grad.addColorStop(1, '#6366f1');
       ctx.fillStyle = grad;
       ctx.font = 'italic 300 56px "Fraunces"';
-      ctx.fillText('Bypass', W/2, 175);
+      ctx.fillText('Select/Copy', W/2, 175);
 
-      // 8. Tagline minimaliste avec icône clavier
+      // 8. Tagline minimaliste
       ctx.fillStyle = 'rgba(255,255,255,0.7)';
       ctx.font = '400 16px "Inter"';
-      ctx.fillText('Paste anywhere.', W/2, 230);
+      ctx.fillText('Paste. Click. Select. Unlocked.', W/2, 230);
 
       // 9. Bordure lumineuse subtile en bas
       const borderGrad = ctx.createLinearGradient(0, 0, W, 0);

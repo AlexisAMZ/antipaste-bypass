@@ -1,12 +1,12 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass"
+    "message": "Anti-Paste & Select/Copy"
   },
   "extensionDescription": {
-    "message": "Aggira le restrizioni di copia-incolla simulando la digitazione della tastiera. Fai clic con il tasto destro per incollare."
+    "message": "Aggira le restrizioni di copia-incolla simulando la digitazione della tastiera. Sblocca clic destro e selezione del testo su qualsiasi sito."
   },
   "popupTitle": {
-    "message": "Impostazioni Anti-Paste Bypass"
+    "message": "Impostazioni Anti-Paste & Select/Copy"
   },
   "popupSubtitle": {
     "message": "Bypass Appunti Intelligente"
@@ -36,13 +36,13 @@
     "message": "Fai clic con il tasto destro sul campo bloccato nella pagina web."
   },
   "instruction3": {
-    "message": "Seleziona \"Incolla con Anti-Paste Bypass\"."
+    "message": "Seleziona \"Incolla con Anti-Paste\"."
   },
   "instruction4": {
     "message": "L'estensione digiterà il testo per te."
   },
   "contextMenuTitle": {
-    "message": "Incolla con Anti-Paste Bypass"
+    "message": "Incolla con Anti-Paste"
   },
   "textLabel": {
     "message": "Testo da incollare"
@@ -84,16 +84,19 @@
     "message": "Bypassa il blocco"
   },
   "step3Desc": {
-    "message": "Sul sito bloccato, fai clic destro -> Incolla con Anti-Paste Bypass."
+    "message": "Sul sito bloccato, fai clic destro -> Incolla con Anti-Paste."
   },
   "antiAILabel": {
     "message": "Modalità Ultra Umana (Errori e correzioni)"
   },
   "commandDescription": {
-    "message": "Incolla con Anti-Paste Bypass"
+    "message": "Incolla con Anti-Paste"
   },
   "incognitoLabel": {
     "message": "Modalità Incognito (Non salvare la cronologia)"
+  },
+  "rightclickLabel": {
+    "message": "Forza clic destro (Bypass)"
   },
   "ob_subtitle": {
     "message": "L'estensione che aggira le restrizioni di incollaggio su qualsiasi sito. Scegli la tua lingua."
@@ -108,19 +111,13 @@
     "message": "Cosa puoi fare"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simula la digitazione umana reale per aggirare i blocchi."
+    "message": "Anti-Paste & Select/Copy simula la digitazione umana reale per aggirare i blocchi."
   },
   "ob_f1Title": {
     "message": "Digitazione Simulata"
   },
   "ob_f1Desc": {
     "message": "Il testo viene digitato lettera per lettera, indistinguibile da un umano."
-  },
-  "ob_f2Title": {
-    "message": "Pulsante Magico 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "Un pulsante appare in ogni campo di testo quando ci clicchi."
   },
   "ob_f3Title": {
     "message": "Modalità Ultra-Umana"
@@ -146,6 +143,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — modificabile in qualsiasi momento."
   },
+  "ob_f7Title": {
+    "message": "Sblocco del Clic Destro"
+  },
+  "ob_f7Desc": {
+    "message": "Sblocca clic destro e selezione del testo su qualsiasi sito."
+  },
   "ob_doneTitle": {
     "message": "Tutto pronto."
   },
@@ -159,10 +162,10 @@
     "message": "Clicca sull'icona 🧩 Puzzle in alto a destra di Chrome"
   },
   "ob_pin2": {
-    "message": "Trova Anti-Paste Bypass e clicca il pin 📌"
+    "message": "Trova Anti-Paste & Select/Copy e clicca il pin 📌"
   },
   "ob_pin3": {
-    "message": "Copia testo ({COPY}), poi usa {PASTE} o il pulsante 🧩"
+    "message": "Copia testo ({COPY}), poi usa {PASTE}"
   },
   "ob_letsgo": {
     "message": "Andiamo →"

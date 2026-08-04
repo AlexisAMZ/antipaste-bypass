@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title data-i18n="extensionName">Anti-Paste Bypass</title>
+  <title data-i18n="extensionName">Anti-Paste & Select/Copy</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
       <div class="header-brand">
         <img src="../icons/icon-48.png" alt="Logo" class="brand-logo">
         <div class="brand-text">
-          <h1 class="brand-title" data-i18n="extensionName">Anti-Paste Bypass</h1>
+          <h1 class="brand-title" data-i18n="extensionName">Anti-Paste & Select/Copy</h1>
           <p class="brand-subtitle" data-i18n="popupSubtitle">Contournement intelligent</p>
         </div>
       </div>
@@ -84,6 +84,19 @@
             </div>
             <div class="toggle-switch stealth-toggle">
               <input type="checkbox" id="incognito-toggle" class="toggle-input">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+
+          <div class="divider"></div>
+
+          <!-- Right-Click Bypass Toggle -->
+          <label class="setting-row toggle-row" for="rightclick-toggle">
+            <div class="setting-info">
+              <span class="setting-label" data-i18n="rightclickLabel">Forcer le clic droit (Bypass)</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="rightclick-toggle" class="toggle-input">
               <span class="toggle-slider"></span>
             </div>
           </label>

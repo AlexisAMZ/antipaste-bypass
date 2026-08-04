@@ -1,14 +1,14 @@
 {
   "extensionName": {
-    "message": "Anti-Paste Bypass",
+    "message": "Anti-Paste & Select/Copy",
     "description": "Name of the extension"
   },
   "extensionDescription": {
-    "message": "Bypass copy-paste restrictions by simulating keyboard typing. Right-click to paste.",
+    "message": "Bypass copy-paste restrictions by simulating keyboard typing. Unlock right-click and text selection on any website.",
     "description": "Description of the extension"
   },
   "popupTitle": {
-    "message": "Anti-Paste Bypass Settings"
+    "message": "Anti-Paste & Select/Copy Settings"
   },
   "popupSubtitle": {
     "message": "Smart Clipboard Bypass"
@@ -38,13 +38,13 @@
     "message": "Right-click on the blocked field in the web page."
   },
   "instruction3": {
-    "message": "Select \"Paste with Anti-Paste Bypass\"."
+    "message": "Select \"Paste with Anti-Paste\"."
   },
   "instruction4": {
     "message": "The extension will type the text for you."
   },
   "contextMenuTitle": {
-    "message": "Paste with Anti-Paste Bypass"
+    "message": "Paste with Anti-Paste"
   },
   "textLabel": {
     "message": "Text to paste"
@@ -86,16 +86,19 @@
     "message": "Bypass the block"
   },
   "step3Desc": {
-    "message": "On the blocked site, Right-Click -> Paste with Anti-Paste Bypass."
+    "message": "On the blocked site, Right-Click -> Paste with Anti-Paste."
   },
   "antiAILabel": {
     "message": "Ultra-Human Mode (Typos & Corrections)"
   },
   "commandDescription": {
-    "message": "Paste with Anti-Paste Bypass"
+    "message": "Paste with Anti-Paste"
   },
   "incognitoLabel": {
     "message": "Incognito Mode (Do not save history)"
+  },
+  "rightclickLabel": {
+    "message": "Force Right-Click (Bypass)"
   },
   "ob_subtitle": {
     "message": "The extension that bypasses paste restrictions on any website. Choose your language to get started."
@@ -110,19 +113,13 @@
     "message": "What you can do"
   },
   "ob_featuresDesc": {
-    "message": "Anti-Paste Bypass simulates real human typing to bypass paste blocks on any website."
+    "message": "Anti-Paste & Select/Copy simulates real human typing to bypass paste blocks on any website."
   },
   "ob_f1Title": {
     "message": "Simulated Typing"
   },
   "ob_f1Desc": {
     "message": "Text is typed letter by letter, indistinguishable from a real human."
-  },
-  "ob_f2Title": {
-    "message": "Magic Button 🧩"
-  },
-  "ob_f2Desc": {
-    "message": "A button appears in every text field when you click on it."
   },
   "ob_f3Title": {
     "message": "Ultra-Human Mode"
@@ -148,6 +145,12 @@
   "ob_f6Desc": {
     "message": "EN, FR, ES, PT, IT, DE — changeable at any time."
   },
+  "ob_f7Title": {
+    "message": "Right-Click Unlock"
+  },
+  "ob_f7Desc": {
+    "message": "Unblocks right-click and text selection on any website."
+  },
   "ob_doneTitle": {
     "message": "All done."
   },
@@ -161,10 +164,10 @@
     "message": "Click the 🧩 Puzzle icon at the top right of Chrome"
   },
   "ob_pin2": {
-    "message": "Find Anti-Paste Bypass and click the pin 📌"
+    "message": "Find Anti-Paste & Select/Copy and click the pin 📌"
   },
   "ob_pin3": {
-    "message": "Copy text ({COPY}), then use {PASTE} or the 🧩 button"
+    "message": "Copy text ({COPY}), then use {PASTE}"
   },
   "ob_letsgo": {
     "message": "Let's go →"

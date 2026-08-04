@@ -65,7 +65,7 @@
       ctx.fillStyle = 'rgba(255,255,255,0.3)';
       ctx.letterSpacing = '0.15em';
       const corners = [
-        { text: '◻ SYS · ANTIPASTE · v26.7.21', x: 32, y: 32 },
+        { text: '◻ SYS · ANTIPASTE · v26.7.31', x: 32, y: 32 },
         { text: '◻ BYPASS ENGINE · ACTIVE', x: W - 32, y: 32, align: 'right' },
         { text: '◻ SECURE · ANTI-AI · READY', x: 32, y: H - 24 },
         { text: '◻ CHROME MV3 · 6 LANGS', x: W - 32, y: H - 24, align: 'right' },
@@ -118,7 +118,7 @@
       // Extension name
       ctx.fillStyle = 'rgba(255,255,255,0.9)';
       ctx.font = '600 11px "Inter"';
-      ctx.fillText('Anti-Paste Bypass', cardX + 46, cardY + 22);
+      ctx.fillText('Anti-Paste & Select/Copy', cardX + 46, cardY + 22);
       ctx.fillStyle = 'rgba(255,255,255,0.4)';
       ctx.font = '400 9px "Inter"';
       ctx.fillText('Simulated typing active', cardX + 46, cardY + 36);
@@ -142,6 +142,7 @@
       const rows = [
         { label: 'Typing Speed', val: 'Normal' },
         { label: 'Ultra-Human Mode', val: '●' },
+        { label: 'Right-Click Bypass', val: '●' },
         { label: 'Incognito Mode', val: '○' },
       ];
       rows.forEach((r, i) => {
@@ -186,7 +187,7 @@
       // Main title
       ctx.fillStyle = '#f5f5f7';
       ctx.font = '300 86px "Fraunces"';
-      ctx.fillText('Anti-Paste', textX, 230);
+      ctx.fillText('Anti-Paste &', textX, 230);
 
       // Italic accent word
       ctx.save();
@@ -195,13 +196,13 @@
       grad.addColorStop(1, '#6366f1');
       ctx.fillStyle = grad;
       ctx.font = 'italic 300 86px "Fraunces"';
-      ctx.fillText('Bypass', textX, 320);
+      ctx.fillText('Select/Copy', textX, 320);
       ctx.restore();
 
       // Tagline
       ctx.fillStyle = 'rgba(180,180,196,0.85)';
       ctx.font = '400 20px "Inter"';
-      ctx.fillText('Stop retyping. Paste anywhere.', textX, 368);
+      ctx.fillText('Paste, click & select freely. Anywhere.', textX, 368);
 
       // Shortcut badge
       const badgeX = textX, badgeY = 390, badgeW = 210, badgeH = 38;
@@ -221,8 +222,9 @@
       // Feature pills
       const features = [
         { icon: '⌨️', label: 'Simulated Typing' },
-        { icon: '🧠', label: 'Ultra-Human Mode' },
-        { icon: '🕵️', label: 'Incognito Mode' },
+        { icon: '🖱️', label: 'Click Unlock' },
+        { icon: '✂️', label: 'Select Unlock' },
+        { icon: '🧠', label: 'Ultra-Human' },
       ];
       let fx = textX;
       features.forEach(f => {

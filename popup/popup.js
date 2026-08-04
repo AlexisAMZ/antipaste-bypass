@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Traduire l'interface
-  localizeHTML();
+  localizeHTML(chrome.i18n.getUILanguage().split('-')[0]);
   
   // 2. Éléments DOM
   const speedSelect = document.getElementById('speed-select');
   const antiAiToggle = document.getElementById('anti-ai-toggle');
   const incognitoToggle = document.getElementById('incognito-toggle');
+  const rightclickToggle = document.getElementById('rightclick-toggle');
   const savedText = document.getElementById('saved-text');
   const statusMessage = document.getElementById('status-message');
   const historyList = document.getElementById('history-list');
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 3. Charger les données (Langue incluse)
-  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode', 'savedText', 'pasteHistory', 'userLang'], (result) => {
+  chrome.storage.local.get(['typingSpeed', 'antiAiMode', 'incognitoMode', 'rightClickBypass', 'savedText', 'pasteHistory', 'userLang'], (result) => {
     if (result.userLang) {
       document.getElementById('lang-selector').value = result.userLang;
       localizeHTML(result.userLang);
@@ -64,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (result.incognitoMode !== undefined) {
       incognitoToggle.checked = result.incognitoMode;
+    }
+    if (result.rightClickBypass !== undefined) {
+      rightclickToggle.checked = result.rightClickBypass;
     }
     if (result.savedText !== undefined) {
       savedText.value = result.savedText;
@@ -91,6 +95,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   incognitoToggle.addEventListener('change', (e) => {
     chrome.storage.local.set({ incognitoMode: e.target.checked }, showSavedIndicator);
+  });
+
+  rightclickToggle.addEventListener('change', (e) => {
+    const enabled = e.target.checked;
+    chrome.storage.local.set({ rightClickBypass: enabled }, () => {
+      if (enabled) {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          if (tabs[0]) {
+            chrome.runtime.sendMessage({ type: 'inject-rightclick-bypass', tabId: tabs[0].id });
+          }
+        });
+      }
+      showSavedIndicator();
+    });
   });
 
   savedText.addEventListener('input', (e) => {
