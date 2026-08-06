@@ -66,8 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (result.incognitoMode !== undefined) {
       incognitoToggle.checked = result.incognitoMode;
     }
-    if (result.rightClickBypass !== undefined) {
-      rightclickToggle.checked = result.rightClickBypass;
+    if (result.rightClickBypass) {
+      // Le toggle ne doit rester coché que si <all_urls> est toujours accordée :
+      // l'utilisateur peut l'avoir révoquée depuis chrome://extensions.
+      chrome.permissions.contains({ origins: ['<all_urls>'] }, (hasPermission) => {
+        rightclickToggle.checked = hasPermission;
+        if (!hasPermission) {
+          chrome.storage.local.set({ rightClickBypass: false });
+        }
+      });
     }
     if (result.savedText !== undefined) {
       savedText.value = result.savedText;
@@ -97,16 +104,40 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.local.set({ incognitoMode: e.target.checked }, showSavedIndicator);
   });
 
-  rightclickToggle.addEventListener('change', (e) => {
+  rightclickToggle.addEventListener('change', async (e) => {
     const enabled = e.target.checked;
-    chrome.storage.local.set({ rightClickBypass: enabled }, () => {
-      if (enabled) {
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-          if (tabs[0]) {
-            chrome.runtime.sendMessage({ type: 'inject-rightclick-bypass', tabId: tabs[0].id });
-          }
-        });
-      }
+
+    if (!enabled) {
+      chrome.storage.local.set({ rightClickBypass: false }, () => {
+        // On rend la permission : elle n'a plus d'utilité tant que le toggle est off
+        chrome.permissions.remove({ origins: ['<all_urls>'] }).catch(() => {});
+        showSavedIndicator();
+      });
+      return;
+    }
+
+    // <all_urls> est optionnelle : sans elle, l'injection automatique sur chaque page
+    // est impossible. La demande doit partir d'un geste utilisateur, donc d'ici.
+    let granted = false;
+    try {
+      granted = await chrome.permissions.request({ origins: ['<all_urls>'] });
+    } catch (err) {
+      console.error("Erreur demande de permission :", err);
+    }
+
+    if (!granted) {
+      // Refus : on ne laisse pas un toggle coché qui ne ferait rien
+      e.target.checked = false;
+      chrome.storage.local.set({ rightClickBypass: false });
+      return;
+    }
+
+    chrome.storage.local.set({ rightClickBypass: true }, () => {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0]) {
+          chrome.runtime.sendMessage({ type: 'inject-rightclick-bypass', tabId: tabs[0].id });
+        }
+      });
       showSavedIndicator();
     });
   });

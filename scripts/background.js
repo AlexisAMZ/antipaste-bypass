@@ -1,20 +1,22 @@
 const OFFSCREEN_DOCUMENT_PATH = 'offscreen/offscreen.html';
 
-// Événement d'installation de l'extension
+// Installation / mise à jour de l'extension
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
     chrome.tabs.create({ url: chrome.runtime.getURL('onboarding.html') });
   }
-});
 
-// Initialisation du menu contextuel
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
-    id: "anti-paste-bypass",
-    title: chrome.i18n.getMessage("contextMenuTitle") || "Paste with Anti-Paste & Select/Copy",
-    contexts: ["editable"]
+  // Les menus contextuels sont persistés par Chrome et survivent aux mises à jour.
+  // On repart d'une base propre pour éviter l'erreur "duplicate id" quand onInstalled
+  // se redéclenche (update, chrome_update, rechargement de l'extension).
+  chrome.contextMenus.removeAll(() => {
+    chrome.contextMenus.create({
+      id: "anti-paste-bypass",
+      title: chrome.i18n.getMessage("contextMenuTitle") || "Paste with Anti-Paste & Select/Copy",
+      contexts: ["editable"]
+    });
   });
-  
+
   // Vitesse par défaut dans le storage
   chrome.storage.local.get(['typingSpeed'], (result) => {
     if (!result.typingSpeed) {
@@ -74,6 +76,8 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 // --- GESTION DU RACCOURCI CLAVIER ---
 chrome.commands.onCommand.addListener(async (command, tab) => {
   if (command === "paste-bypass") {
+    // tab est absent si le raccourci est déclenché hors d'un onglet exploitable
+    if (!tab?.id) return;
     try {
       // Lire le presse-papiers système via le document Offscreen
       const clipboardText = await getClipboardFromOffscreen();
@@ -109,14 +113,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-// Injection automatique sur chaque nouvelle page quand le toggle est activé
+// Injection automatique sur chaque nouvelle page quand le toggle est activé.
+// Dépend de la host permission optionnelle <all_urls> : sans elle, tab.url reste
+// undefined et executeScript est refusé sur un onglet non activé par un geste utilisateur.
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://') && !tab.url.startsWith('about:')) {
-    chrome.storage.local.get(['rightClickBypass'], (result) => {
-      if (result.rightClickBypass) {
-        injectRightClickBypass(tabId);
-      }
-    });
+  if (changeInfo.status !== 'complete') return;
+  if (!tab.url || tab.url.startsWith('chrome://') || tab.url.startsWith('about:')) return;
+
+  chrome.storage.local.get(['rightClickBypass'], (result) => {
+    if (result.rightClickBypass) {
+      injectRightClickBypass(tabId);
+    }
+  });
+});
+
+// Si l'utilisateur révoque <all_urls> depuis chrome://extensions, le toggle doit suivre :
+// sans la permission, l'injection automatique est silencieusement impossible.
+chrome.permissions.onRemoved.addListener((permissions) => {
+  if (permissions.origins?.includes('<all_urls>')) {
+    chrome.storage.local.set({ rightClickBypass: false });
   }
 });
 
@@ -157,7 +172,7 @@ function rightClickBypassInjection() {
 // --- GESTION OFFSCREEN (Lecture du presse-papiers) ---
 let creating; // Promise globale pour éviter de créer le document plusieurs fois en même temps
 async function setupOffscreenDocument() {
-  const offscreenUrl = chrome.runtime.getURL('offscreen/offscreen.html');
+  const offscreenUrl = chrome.runtime.getURL(OFFSCREEN_DOCUMENT_PATH);
   const existingContexts = await chrome.runtime.getContexts({
     contextTypes: ['OFFSCREEN_DOCUMENT'],
     documentUrls: [offscreenUrl]
@@ -167,15 +182,19 @@ async function setupOffscreenDocument() {
     return;
   }
 
-  if (creating) {
-    await creating;
-  } else {
+  if (!creating) {
     creating = chrome.offscreen.createDocument({
-      url: 'offscreen/offscreen.html',
+      url: OFFSCREEN_DOCUMENT_PATH,
       reasons: ['CLIPBOARD'],
       justification: 'Read clipboard text to bypass paste block'
     });
+  }
+
+  try {
     await creating;
+  } finally {
+    // Réinitialisation systématique : sans le finally, une promesse rejetée restait
+    // en cache et faisait échouer instantanément tous les appels suivants.
     creating = null;
   }
 }
@@ -197,28 +216,83 @@ async function simulateTypingInPage(text, speed, antiAiMode) {
     return;
   }
 
-  // Fonction d'insertion compatible React/Angular
-  const insertCharacter = (el, char) => {
-    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set;
+  // Setter natif : indispensable pour que React/Angular voient la nouvelle valeur
+  const nativeValueSetter = (el) => {
+    if (el.tagName === 'INPUT') {
+      return Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+    }
+    if (el.tagName === 'TEXTAREA') {
+      return Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set;
+    }
+    return undefined;
+  };
 
-    if (el.tagName === 'INPUT' && nativeInputValueSetter) {
-      nativeInputValueSetter.call(el, el.value + char);
-    } else if (el.tagName === 'TEXTAREA' && nativeTextAreaValueSetter) {
-      nativeTextAreaValueSetter.call(el, el.value + char);
-    } else if (el.value !== undefined) {
-      el.value += char;
-    } else if (el.isContentEditable) {
+  // Certains types d'input (number, email...) n'exposent pas de sélection
+  const setCaret = (el, position) => {
+    try {
+      el.setSelectionRange(position, position);
+    } catch (e) { /* type d'input sans sélection */ }
+  };
+
+  // Insertion à la position du curseur (et non en fin de champ)
+  const insertCharacter = (el, char) => {
+    if (el.isContentEditable) {
       const selection = window.getSelection();
       if (selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
         range.deleteContents();
         range.insertNode(document.createTextNode(char));
         range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
       } else {
         el.textContent += char;
       }
+      return;
     }
+
+    if (el.value === undefined) return;
+
+    const setter = nativeValueSetter(el);
+    const start = el.selectionStart ?? el.value.length;
+    const end = el.selectionEnd ?? el.value.length;
+    const newValue = el.value.slice(0, start) + char + el.value.slice(end);
+
+    if (setter) {
+      setter.call(el, newValue);
+    } else {
+      el.value = newValue;
+    }
+    setCaret(el, start + char.length);
+  };
+
+  // Suppression du caractère précédant le curseur (simulation du Backspace)
+  const removeCharacterBeforeCaret = (el) => {
+    if (el.isContentEditable) {
+      el.textContent = el.textContent.slice(0, -1);
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      range.collapse(false);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      return;
+    }
+
+    if (el.value === undefined) return;
+
+    const caret = el.selectionStart ?? el.value.length;
+    if (caret === 0) return;
+
+    const setter = nativeValueSetter(el);
+    const newValue = el.value.slice(0, caret - 1) + el.value.slice(caret);
+
+    if (setter) {
+      setter.call(el, newValue);
+    } else {
+      el.value = newValue;
+    }
+    setCaret(el, caret - 1);
   };
 
   element.focus();
@@ -245,27 +319,8 @@ async function simulateTypingInPage(text, speed, antiAiMode) {
       element.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace', code: 'Backspace', keyCode: 8, bubbles: true }));
       
       // 5. Retirer le caractère
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
-        const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, "value")?.set;
-        const newValue = element.value.slice(0, -1);
-        if (element.tagName === 'INPUT' && nativeInputValueSetter) {
-          nativeInputValueSetter.call(element, newValue);
-        } else if (element.tagName === 'TEXTAREA' && nativeTextAreaValueSetter) {
-          nativeTextAreaValueSetter.call(element, newValue);
-        } else {
-          element.value = newValue;
-        }
-      } else if (element.isContentEditable) {
-        element.textContent = element.textContent.slice(0, -1);
-        const selection = window.getSelection();
-        const range = document.createRange();
-        range.selectNodeContents(element);
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
-      }
-      
+      removeCharacterBeforeCaret(element);
+
       element.dispatchEvent(new Event('input', { bubbles: true }));
       element.dispatchEvent(new KeyboardEvent('keyup', { key: 'Backspace', code: 'Backspace', keyCode: 8, bubbles: true }));
       
